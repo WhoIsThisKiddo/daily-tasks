@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<title>Simple Dark Page</title>
+<style>
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: monospace;
+    padding: 40px;
+}
+
+.container {
+    max-width: 700px;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+.checkbox-group {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.script-box {
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #8aff80;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 4px;
+    font-family: monospace;
+    resize: vertical;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Checklist</h1>
+<label id="memory-castle"><input type="checkbox"/>Memoriapalota mai szam:</label><p>155896</p>
+<hr/>
+<label id="daily-challenge"><input type="checkbox"/>Todays challege:</label><p><a href="https://pwn.college/" target="_blank">pwn-college</a></p>
+<hr/>
+<label id="business-english"><input type="checkbox"/> Business English mondatok</label><p><a href="https://elsaspeak.com/" target="_blank">Elsa pronounce help</a></p><p><a href="https://quizlet.com/" target="_blank">Quizlet</a></p>
+<p>I need to schedule a meeting for tomorrow. → Meg kell szerveznem egy találkozót holnapra.</p>
+<p>Could you send me the latest report? → Tudnád elküldeni a legfrissebb jelentést?</p>
+<p>Let's review the project milestones. → Nézzük át a projekt mérföldköveit.</p>
+<p>We should brainstorm new marketing strategies. → Új marketing stratégiákat kellene ötletelnünk.</p>
+<p>Please confirm your availability. → Kérlek, erősítsd meg a rendelkezésre állásodat.</p>
+<hr/>
+<label id="b2-c1-words"><input type="checkbox"/> B2 → C1 szavak</label>
+<p>Comprehensive → Átfogó</p>
+<p>Facilitate → Könnyíteni, elősegíteni</p>
+<p>Substantial → Jelentős</p>
+<p>Implement → Megvalósítani</p>
+<p>Mitigate → Enyhíteni, csökkenteni</p>
+<hr/>
+<label id="business-phrases"><input type="checkbox"/> Business English kifejezések</label>
+<p>Touch base → Kapcsolatba lépni</p>
+<p>On the same page → Egyetértésben lenni</p>
+<p>Circle back → Visszatérni egy témára</p>
+<p>Move the needle → Eredményt elérni</p>
+<p>Think outside the box → Kreatívan gondolkodni</p>
+<hr/>
+<label id="vim-command"><input type="checkbox"/> Hasznos VIM parancs</label><p><a href="https://openvim.com/sandbox.html" target="_blank">VIM Playground</a></p><p># – Szó keresése a kurzor alatt visszafelé (Keresés/Navigáció)</p>
+<p>:wq → Mentés és kilépés</p>
+<hr/>
+<label id="tmux-command"><input type="checkbox"/> Hasznos TMUX parancs</label><p><a href="https://pwn.college/" target="_blank">Tmux Playground</a></p><p>o – Váltás a következő panelre (Pane kezelés)</p>
+<p>Ctrl+b c → Új ablak létrehozása</p>
+<hr/>
+<label id="bash-example"><input type="checkbox"/> Rövid Bash példa</label>
+<pre><code class="language-bash">#!/bin/bash
+# Simple script to list files and directories
+echo "Listing current directory contents:"
+ls -lah
+</code></pre>
+<textarea></textarea>
+<p>Ez a Bash script a következőket használja: shebang (#!/bin/bash), echo kiíratás, ls parancs opciókkal. A script célja a jelenlegi könyvtár tartalmának részletes listázása.</p>
+<hr/>
+<label id="powershell-example"><input type="checkbox"/> Rövid PowerShell példa</label>
+<pre><code class="language-powershell"># List all processes with memory usage
+Get-Process | Sort-Object WS -Descending | Select-Object -First 5
+</code></pre>
+<textarea></textarea>
+<p>Ez a PowerShell példa a Get-Process parancsot használja a folyamatok lekérdezésére, majd a Sort-Object segítségével memóriahasználat szerint csökkenő sorrendbe rendezi, végül a Select-Object -First 5 a legnagyobb memóriát használó 5 folyamatot jeleníti meg.</p>
+</div>
+<script>
+document.querySelectorAll(".tab-support").forEach(textarea => {
+    textarea.addEventListener("keydown", function(e) {
+        if (e.key === "Tab") {
+            e.preventDefault();
+
+            const start = this.selectionStart;
+            const end = this.selectionEnd;
+
+            // TAB beszúrása
+            this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
+
+            // kurzor pozíció
+            this.selectionStart = this.selectionEnd = start + 1;
+        }
+    });
+});
+</script>
+<script>
+hljs.highlightAll();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+</body>
+</html>
