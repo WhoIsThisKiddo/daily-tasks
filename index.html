@@ -55,52 +55,1120 @@ textarea {
 <body>
 <div class="container">
 <h1>Checklist</h1>
-<label id="memory-castle"><input type="checkbox"/>Memoriapalota mai szam:</label><p>155896</p>
+<label id="memory-castle"><input type="checkbox"/>Memoriapalota mai szam:</label><p>762735</p>
 <hr/>
-<label id="daily-challenge"><input type="checkbox"/>Todays challege:</label><p><a href="https://pwn.college/" target="_blank">pwn-college</a></p>
+<label id="daily-challenge"><input type="checkbox"/>Todays challege:</label><p><a href="https://cryptohack.org/courses/" target="_blank">crypto</a></p>
 <hr/>
+<div id="bash-challenge"></div><pre><code class="language-bash">1. #!/bin/bash
+
+    name="Adam"
+    age=30
+
+    echo "Hello $name"
+    echo "You are $age years old"
+     – #!/bin/bash
+    Ez a shebang. Megmondja a rendszernek, hogy a scriptet a bash interpreterrel kell futtatni.
+
+    name="Adam"
+    Változó létrehozása. Bash-ben nem lehet szóköz az = körül.
+
+    age=30
+    Numerikus értéket is így adunk meg.
+
+    $name
+    A $ jel mutatja, hogy a változó értékét használjuk.
+
+    echo
+    Szöveg kiírására szolgál.</code><pre><code class="language-bash">2. #!/bin/bash
+
+    echo "What is your name?"
+    read name
+
+    echo "Hello $name!"
+     – read name
+    A read beolvassa a felhasználó által beírt szöveget
+    és eltárolja a name változóban.</code><pre><code class="language-bash">3. #!/bin/bash
+
+    number=10
+
+    if [ $number -gt 5 ]; then
+        echo "Number is greater than 5"
+    fi
+     – if [ condition ]
+    Bash feltétel szerkezet.
+
+    [ ... ]
+    Ez a test parancs rövid formája.
+
+    -gt
+    Numerikus összehasonlítás:
+    -gt greater than
+    -lt less than
+    -eq equal
+
+    then
+    Ha a feltétel igaz, ezután fut a kód.
+
+    fi
+    Az if blokk lezárása.</code><pre><code class="language-bash">4. #!/bin/bash
+
+    read -p "Enter a number: " num
+
+    if [ $num -gt 10 ]; then
+        echo "Greater than 10"
+    else
+        echo "10 or smaller"
+    fi
+     – read -p
+    Promptot ír ki input előtt.
+
+    else
+    Ha a feltétel nem igaz, ez fut.</code><pre><code class="language-bash">5. #!/bin/bash
+
+    read -p "Enter a number: " num
+
+    if [ $num -gt 10 ]; then
+        echo "Big number"
+    elif [ $num -eq 10 ]; then
+        echo "Exactly ten"
+    else
+        echo "Small number"
+    fi
+     – elif
+    Második feltétel.
+
+    A működés:
+    if
+    else if
+    else</code><pre><code class="language-bash">6. #!/bin/bash
+
+    for i in 1 2 3 4 5
+    do
+        echo "Number: $i"
+    done
+     – for i in
+    A for ciklus sorra veszi az elemeket.
+
+    i
+    Ciklusváltozó.
+
+    do ... done
+    A ciklus blokk.</code><pre><code class="language-bash">7. #!/bin/bash
+
+    for i in {1..5}
+    do
+        echo $i
+    done
+     – {1..5}
+    Bash range expansion.
+
+    Ez létrehozza:
+    1 2 3 4 5</code><pre><code class="language-bash">8. #!/bin/bash
+
+    counter=1
+
+    while [ $counter -le 5 ]
+    do
+        echo $counter
+        ((counter++))
+    done
+     – while
+    Addig fut, amíg a feltétel igaz.
+
+    -le
+    Less or equal.
+
+    ((counter++))
+    Bash aritmetikai növelés.</code><pre><code class="language-bash">9. #!/bin/bash
+
+    read -p "Enter y or n: " answer
+
+    case $answer in
+        y)
+            echo "Yes selected"
+            ;;
+        n)
+            echo "No selected"
+            ;;
+        *)
+            echo "Invalid option"
+            ;;
+    esac
+     – case
+    Több lehetséges értéket vizsgál.
+
+    y)
+    Ha az érték y.
+
+    ;;
+    Lezárja az adott case blokkot.
+
+    *
+    Wildcard → minden más.
+
+    esac
+    A case lezárása.</code><pre><code class="language-bash">10. #!/bin/bash
+
+    hello() {
+        echo "Hello $1"
+    }
+
+    hello Adam
+     – hello()
+    Függvény definiálása.
+
+    $1
+    A függvény első argumentuma.</code><pre><code class="language-bash">11. #!/bin/bash
+
+    echo "First argument: $1"
+    echo "Second argument: $2"
+     – Fontos változók:
+
+    $0 script neve
+    $1 első argumentum
+    $2 második argumentum
+    $# argumentumok száma</code><pre><code class="language-bash">12. #!/bin/bash
+
+    file="test.txt"
+
+    if [ -f $file ]; then
+        echo "File exists"
+    else
+        echo "File not found"
+    fi
+     – File teszt operátorok:
+
+    -f file létezik
+    -d directory
+    -r olvasható
+    -w írható
+    -x futtatható</code><pre><code class="language-bash">13. #!/bin/bash
+
+    current_user=$(whoami)
+
+    echo "Current user: $current_user"
+     – $(command)
+    Command substitution.
+
+    A parancs outputja bekerül a változóba.
+
+    Régi forma:
+    `whoami`</code><pre><code class="language-bash">14. #!/bin/bash
+
+    ps aux | grep bash
+     – |
+    Pipe.
+
+    A bal oldali parancs outputját
+    a jobb oldali parancs inputként kapja.</code><pre><code class="language-bash">15. #!/bin/bash
+
+    echo "Hello world" &gt; output.txt
+    echo "Another line" &gt;&gt; output.txt
+     – &gt;
+    Fájlba ír (felülír).
+
+    &gt;&gt;
+    Append (hozzáfűz).</code><pre><code class="language-bash">16. #!/bin/bash
+
+    fruits=("apple" "banana" "orange")
+
+    echo ${fruits[0]}
+    echo ${fruits[1]}
+     – ()
+    Array létrehozása.
+
+    ${fruits[0]}
+    Indexelt elem.
+
+    Index 0-tól indul.</code><pre><code class="language-bash">17. #!/bin/bash
+
+    fruits=("apple" "banana" "orange")
+
+    for fruit in "${fruits[@]}"
+    do
+        echo $fruit
+    done
+     – "${fruits[@]}"
+    Az összes elem.
+
+    Biztonságos iterációs forma.</code><pre><code class="language-bash">18. #!/bin/bash
+
+    mkdir testdir
+
+    if [ $? -eq 0 ]; then
+        echo "Directory created"
+    else
+        echo "Error creating directory"
+    fi
+     – $?
+    Az előző parancs exit code-ja.
+
+    0 = success
+    nem 0 = error.</code><pre><code class="language-bash">19. #!/bin/bash
+
+    trap "echo Script interrupted" SIGINT
+
+    while true
+    do
+        sleep 1
+    done
+     – trap
+    Signal kezelő.
+
+    SIGINT
+    Ctrl+C signal.
+
+    Ha megszakítják a scriptet,
+    lefut a trap parancs.</code><pre><code class="language-bash">20. #!/bin/bash
+    set -x
+
+    echo "Debug example"
+    ls
+     – set -x
+    Debug mód.
+
+    Minden futtatott parancsot kiír.</code><pre><code class="language-bash">21. echo "Hello world"
+     – echo
+
+    Szöveg kiírására szolgál a terminálra.
+
+    Gyakori felhasználás:
+    - debugolás
+    - információ kiírás script futás közben
+
+    Példa változóval:
+
+    echo "User: $USER"
+    </code><pre><code class="language-bash">22. read name
+    echo "Hello $name"
+     – read
+
+    A felhasználó inputját olvassa be
+    és egy változóba menti.
+
+    Interaktív script-ekben gyakori.
+
+    Prompttal:
+
+    read -p "Enter your name: " name
+    </code><pre><code class="language-bash">23. if [ -f file.txt ]; then
+        echo "File exists"
+    fi
+     – [ ]
+
+    Ez a 'test' parancs rövid formája.
+
+    Feltételek vizsgálatára használjuk.
+
+    Fontos operátorok:
+
+    -f file   file létezik
+    -d dir    directory
+    -z var    üres string
+    -n var    nem üres string
+    </code><pre><code class="language-bash">24. if [[ $name == "admin" ]]; then
+        echo "Admin user"
+    fi
+     – [[ ]]
+
+    Bash-specifikus feltétel blokk.
+
+    Előnyei a [ ]-hez képest:
+
+    - regex támogatás
+    - biztonságosabb string összehasonlítás
+    - kevesebb quoting probléma
+
+    Regex példa:
+
+    [[ $email =~ @ ]]
+    </code><pre><code class="language-bash">25. declare -i number=5
+     – declare
+
+    Változó típus definiálása Bash-ben.
+
+    Fontos opciók:
+
+    declare -i   integer
+    declare -a   array
+    declare -r   readonly
+    </code><pre><code class="language-bash">26. myfunc() {
+        local x=5
+        echo $x
+    }
+     – local
+
+    Lokális változó létrehozása függvényben.
+
+    A változó csak a függvényen belül létezik.
+
+    Jó gyakorlat minden Bash függvényben használni,
+    különben globális változó lesz.
+    </code><pre><code class="language-bash">27. exit 1
+     – exit
+
+    Kilép a scriptből.
+
+    Exit code jelentése:
+
+    0 = success
+    1-255 = error
+
+    Példa:
+
+    if [ ! -f config.txt ]; then
+        echo "Config missing"
+        exit 1
+    fi
+    </code><pre><code class="language-bash">28. myfunc() {
+        return 1
+    }
+     – return
+
+    Függvényből kilépés.
+
+    Csak függvényen belül működik.
+
+    Exit code-ot ad vissza,
+    amit később ellenőrizhetünk.
+    </code><pre><code class="language-bash">29. source config.sh
+     – source
+
+    Egy másik script betöltése a jelenlegi shellbe.
+
+    Nem új process-ben fut.
+
+    Alternatív forma:
+
+    . config.sh
+
+    Gyakori használat:
+
+    - environment változók
+    - config fájlok
+    - aliasok
+    </code><pre><code class="language-bash">30. export API_KEY=12345
+     – export
+
+    Környezeti változó létrehozása.
+
+    A változó elérhető lesz
+    child process-ek számára is.
+
+    Használat:
+
+    script -&gt; subprocess
+    </code><pre><code class="language-bash">31. trap "echo Interrupted" SIGINT
+     – trap
+
+    Signal eseménykor futtat kódot.
+
+    Gyakori signalok:
+
+    SIGINT  Ctrl+C
+    SIGTERM process kill
+    EXIT    script vége
+
+    Cleanup példa:
+
+    trap "rm temp.txt" EXIT
+    </code><pre><code class="language-bash">32. set -e
+     – set
+
+    A shell viselkedését módosítja.
+
+    Fontos opciók:
+
+    set -e   kilép ha hiba történik
+    set -u   undefined változó hiba
+    set -x   debug mód
+
+    Profi Bash script elején gyakran:
+
+    set -euo pipefail
+    </code><pre><code class="language-bash">33. echo $1
+    shift
+    echo $1
+     – shift
+
+    Eltolja a script argumentumokat.
+
+    Példa:
+
+    script.sh a b c
+
+    $1 = a
+
+    shift után:
+
+    $1 = b
+    </code><pre><code class="language-bash">34. while getopts "f:v" opt; do
+      case $opt in
+        f) file=$OPTARG ;;
+        v) verbose=1 ;;
+      esac
+    done
+     – getopts
+
+    CLI argument parser Bash scriptben.
+
+    Példa futtatás:
+
+    script.sh -f test.txt -v
+
+    OPTARG tartalmazza az argumentum értékét.
+    </code><pre><code class="language-bash">35. exec ls
+     – exec
+
+    A jelenlegi shell process
+    lecserélődik egy másik programra.
+
+    A script nem tér vissza utána.
+
+    Használat:
+
+    - container entrypoint
+    - daemon indító script
+    </code><pre><code class="language-bash">36. sleep 5 &amp;
+    wait
+     – wait
+
+    Vár background process-ekre.
+
+    &amp; jel háttérben futtat.
+
+    wait addig blokkol,
+    amíg a háttér process be nem fejeződik.
+    </code><pre><code class="language-bash">37. jobs
+     – jobs
+
+    Listázza az aktuális shell
+    háttérben futó jobjait.
+
+    Példa:
+
+    sleep 100 &amp;
+    jobs
+    </code><pre><code class="language-bash">38. kill 1234
+     – kill
+
+    Signal küldése egy processnek.
+
+    Leggyakoribb:
+
+    kill PID
+
+    Erősebb:
+
+    kill -9 PID
+    </code><pre><code class="language-bash">39. printf "Name: %s Age: %d\n" "Adam" 30
+     – printf
+
+    Formázott output Bash-ben.
+
+    Pontosabb mint echo.
+
+    Format specifiers:
+
+    %s string
+    %d integer
+    </code><pre><code class="language-bash">40. type ls
+     – type
+
+    Megmutatja egy parancs típusát.
+
+    Lehet:
+
+    alias
+    builtin
+    binary
+    function
+    </code><pre><code class="language-bash">41. #!/bin/bash
+    set -euo pipefail
+     – Biztonságos Bash script alap.
+
+    set -e
+    kilép ha hiba
+
+    set -u
+    undefined változó hiba
+
+    pipefail
+    pipeline hiba propagálása
+    </code><pre><code class="language-bash">42. trap "rm -f /tmp/file" EXIT
+     – Temp file cleanup minta.
+
+    Ha a script kilép,
+    automatikusan törli a temp fájlt.
+
+    Nagyon hasznos:
+
+    - pentest script
+    - automation
+    - CI pipeline
+    </code><pre><code class="language-bash">43. while getopts "f:" opt; do
+      case $opt in
+        f) file=$OPTARG ;;
+      esac
+    done
+     – Argument parsing minta.
+
+    CLI tooloknál gyakori.
+
+    Példa futtatás:
+
+    script.sh -f input.txt
+
+    A -f argumentum értéke
+    a file változóba kerül.
+    </code><pre><code class="language-bash">44. #!/bin/bash
+    set -euo pipefail
+     – Biztonságos Bash script indulás.
+
+    -e
+    A script kilép ha bármelyik parancs hibával tér vissza.
+
+    -u
+    Hibát dob ha nem definiált változót használunk.
+
+    pipefail
+    Ha egy pipe bármely része hibázik, az egész pipe hibának számít.
+
+    Ez a profi Bash script alapbeállítása.</code><pre><code class="language-bash">45. set -x
+     – Debug mód.
+
+    A Bash minden futtatott parancsot kiír a terminálra.
+
+    Hasznos:
+
+    debugolásnál
+    CI/CD pipeline logoknál.</code><pre><code class="language-bash">46. command || exit
+     – Gyors hibakezelés.
+
+    Ha a parancs hibával tér vissza,
+    akkor a script azonnal kilép.
+
+    Példa:
+
+    cd /important || exit</code><pre><code class="language-bash">47. command &gt; /dev/null 2&gt;&amp;1
+     – Output elnyelése.
+
+    &gt; /dev/null
+    stdout eldobása
+
+    2&gt;&amp;1
+    stderr átirányítása stdout-ba
+
+    Így minden output eltűnik.
+
+    Gyakori cron scriptben.</code><pre><code class="language-bash">48. SCRIPT_DIR="$(cd "$(dirname "$0")" &amp;&amp; pwd)"
+     – A script saját könyvtárának meghatározása.
+
+    dirname "$0"
+    A script helye.
+
+    cd + pwd
+    Abszolút path.
+
+    Sok install script használja.</code><pre><code class="language-bash">49. name=${name:-Guest}
+     – Default érték változóhoz.
+
+    Ha a name változó nincs beállítva,
+    akkor az értéke Guest lesz.
+
+    Gyakori config scriptben.</code><pre><code class="language-bash">50. : "${API_KEY:?API key missing}"
+     – Kötelező változó ellenőrzése.
+
+    Ha az API_KEY nincs beállítva,
+    a script hibával kilép.
+
+    Hasznos environment variable ellenőrzésre.</code><pre><code class="language-bash">51. echo $RANDOM
+     – Beépített Bash random generátor.
+
+    0 és 32767 közötti számot ad.
+
+    Gyakori használat:
+
+    port választás
+    teszt adat generálás.</code><pre><code class="language-bash">52. while true; do
+        echo "running"
+    done
+     – Végtelen loop.
+
+    Daemon vagy monitor script alapja.
+
+    true mindig sikeres exit code-ot ad.</code><pre><code class="language-bash">53. sleep 10 &amp;
+     – Parancs futtatása háttérben.
+
+    Az &amp; jel miatt a shell nem vár a parancsra.
+
+    Background job lesz.</code><pre><code class="language-bash">54. wait
+     – Megvárja az összes háttérben futó process-t.
+
+    Tipikus minta:
+
+    command1 &amp;
+    command2 &amp;
+    wait</code><pre><code class="language-bash">55. tmp=$(mktemp)
+     – Biztonságos ideiglenes fájl létrehozása.
+
+    mktemp
+    random fájlnevet generál.
+
+    Elkerüli a race condition problémákat.</code><pre><code class="language-bash">56. trap "rm -f $tmp" EXIT
+     – Cleanup trap.
+
+    A script végén automatikusan törli
+    az ideiglenes fájlt.
+
+    Nagyon jó gyakorlat temp file használatakor.</code><pre><code class="language-bash">57. while getopts "f:v" opt; do
+      case $opt in
+        f) file=$OPTARG ;;
+        v) verbose=1 ;;
+      esac
+    done
+     – CLI argument parser.
+
+    Példa futtatás:
+
+    script.sh -f input.txt -v
+
+    OPTARG tartalmazza az argumentum értékét.</code><pre><code class="language-bash">58. cmd1 &amp;&amp; cmd2
+     – Logikai AND.
+
+    cmd2 csak akkor fut,
+    ha cmd1 sikeres volt.</code><pre><code class="language-bash">59. ps aux | grep nginx
+     – Pipe használata.
+
+    A bal oldali parancs outputja
+    a jobb oldali parancs inputja.</code><pre><code class="language-bash">60. while read line; do
+        echo "$line"
+    done &lt; file.txt
+     – Fájl soronként olvasása Bash-ben.
+
+    A read minden sort külön változóba tesz.
+
+    Ez a helyes Bash file reader.</code><pre><code class="language-bash">61. text=${text/foo/bar}
+     – String csere Bash-ben.
+
+    A foo substring
+    bar-ra cserélődik.</code><pre><code class="language-bash">62. echo ${#text}
+     – String hossz.
+
+    Megadja hány karakterből áll a változó.</code><pre><code class="language-bash">63. arr=(one two three)
+     – Array létrehozása Bash-ben.
+
+    A tömb elemei szóközzel vannak elválasztva.</code><pre><code class="language-bash">64. for i in "${arr[@]}"; do
+        echo $i
+    done
+     – Array iteráció.
+
+    "${arr[@]}"
+    az összes elemet jelenti.</code><pre><code class="language-bash">65. for f in *.txt; do
+        echo "$f"
+    done
+     – File globbing.
+
+    Az összes .txt fájlon végigmegy
+    az aktuális könyvtárban.</code><pre><code class="language-bash">66. (cd /tmp &amp;&amp; ls)
+     – Subshell.
+
+    A zárójel új shellt indít.
+
+    A cd nem változtatja meg
+    a fő shell aktuális könyvtárát.</code><pre><code class="language-bash">67. diff &lt;(ls dir1) &lt;(ls dir2)
+     – Process substitution.
+
+    Két parancs outputját
+    fájlként használhatjuk.
+
+    diff összehasonlítja a két listát.</code><pre><code class="language-bash">68. command1 &amp;
+    command2 &amp;
+    wait
+     – Parallel execution.
+
+    A parancsok párhuzamosan futnak.
+
+    wait megvárja az összeset.</code><pre><code class="language-bash">69. find . -type f -print0 | while IFS= read -r -d '' file; do
+        echo "$file"
+    done
+     – Biztonságos file loop.
+
+    A -print0 és -d '' megoldja
+    a space és speciális karakter problémát.</code><pre><code class="language-bash">70. timeout 5 ping google.com
+     – timeout parancs.
+
+    Ha a program 5 másodperc alatt nem fejeződik be,
+    automatikusan leáll.</code><pre><code class="language-bash">71. top -b -n1
+     – Batch módú top.
+
+    Egyszer fut és kiírja
+    a process statisztikát.
+
+    Scriptben használható.</code><pre><code class="language-bash">72. watch -n1 ss -tulnp
+     – Port figyelés.
+
+    watch -n1
+    másodpercenként frissít.
+
+    ss -tulnp
+    aktív portok listája.</code><pre><code class="language-bash">73. find / -type f -size +1G
+     – Nagy fájl keresése.
+
+    +1G
+    1GB-nál nagyobb fájlok.</code><pre><code class="language-bash">74. #!/bin/bash
+    for ip in 192.168.1.{1..254}; do
+        ping -c 1 -W 1 $ip &gt; /dev/null &amp;&amp; echo "Host up: $ip"
+    done
+     – Élő host keresés (ping sweep)
+
+    - Végigpingeli a subnetet 192.168.1.1–254
+    - Csak az **élő gépeket** írja ki
+    - Hasznos hálózati felderítéshez</code><pre><code class="language-bash">75. #!/bin/bash
+    for port in {1..1000}; do
+        timeout 1 bash -c "echo &gt;/dev/tcp/192.168.1.10/$port" 2&gt;/dev/null &amp;&amp; echo "Port open: $port"
+    done
+     – Gyors port scan
+
+    - Bash TCP socketet használ
+    - Megmutatja, mely portok nyitottak
+    - timeout biztosítja, hogy ne álljon meg a script</code><pre><code class="language-bash">76. #!/bin/bash
+    while read pass; do
+        curl -s -d "user=admin&amp;pass=$pass" http://target/login \
+        | grep -q "Welcome" &amp;&amp; echo "Password: $pass"
+    done &lt; wordlist.txt
+     – Wordlist brute force (login)
+
+    - Beolvassa a wordlist.txt sorait
+    - CURL POST requesttel próbálkozik
+    - Ha a válasz tartalmazza a 'Welcome' szót → password sikeres</code><pre><code class="language-bash">77. #!/bin/bash
+    while read sub; do
+        host "$sub.target.com" | grep "has address"
+    done &lt; subs.txt
+     – Subdomain brute force
+
+    - Beolvassa a subs.txt-t
+    - Lekérdezi minden subdomain DNS-ét
+    - Csak a létező (IP-vel rendelkező) domainek kerülnek kiírásra</code><pre><code class="language-bash">78. #!/bin/bash
+    while read dir; do
+        code=$(curl -s -o /dev/null -w "%{http_code}" http://target/$dir)
+        [ "$code" = "200" ] &amp;&amp; echo "Found: $dir"
+    done &lt; dirs.txt
+     – Directory brute force
+
+    - Beolvassa a dirs.txt sorait
+    - Lekéri a HTTP státuszkódot minden directory-ra
+    - Ha 200 → directory létezik → kiírja</code><pre><code class="language-bash">79. #!/bin/bash
+    nc -lvnp 4444
+     – Reverse shell listener
+
+    - Netcat hallgat a 4444-es porton
+    - Listener a reverse shellhez
+    - Hasznos pentest környezetben</code><pre><code class="language-bash">80. grep -i "password" *.log
+     – Log credential keresés
+
+    - Keresi a 'password' szót minden .log fájlban
+    - -i = case-insensitive
+    - Gyors jelszó keresés logokban</code><pre><code class="language-bash">81. find / -perm -4000 2&gt;/dev/null
+     – Privilege escalation keresés
+
+    - Megkeresi az összes SUID binárist
+    - 2&gt;/dev/null eldobja a hibákat (permission denied)
+    - Hasznos root/jogosultság vizsgálathoz</code><pre><code class="language-bash">82. #!/bin/bash
+    while read pass; do
+        sshpass -p "$pass" ssh admin@target
+    done &lt; wordlist.txt
+     – SSH brute
+
+    - Beolvassa a wordlist.txt sorait
+    - SSH kapcsolatot próbál minden jelszóval
+    - sshpass segítségével automatikus belépés próbálkozás</code><pre><code class="language-bash">83. #!/bin/bash
+    while read pass; do
+        if [[ $(echo -n $pass | md5sum) == "$hash" ]]; then
+            echo "Password: $pass"
+        fi
+    done &lt; wordlist.txt
+     – Hash crack (wordlist)
+
+    - MD5 hash ellenőrzés
+    - Ha a jelszó MD5 értéke megegyezik a cél hashel → kiírja
+    - Használható jelszófeltöréshez</code><pre><code class="language-bash">84. awk '{print $1}' file.txt
+     – Awk alapok
+
+    - Minden sor első mezőjét írja ki
+    - Alapértelmezett mező elválasztó: whitespace
+    - Hasznos logok vagy CSV feldolgozásához</code><pre><code class="language-bash">85. awk -F: '{print $1}' /etc/passwd
+     – Awk delimiter
+
+    - -F: mező elválasztó
+    - /etc/passwd felhasználónevek kiírása
+    - Gyakori sysadmin feladat</code><pre><code class="language-bash">86. sed 's/foo/bar/g' file.txt
+     – Sed string csere
+
+    - Minden 'foo' → 'bar'
+    - g = global, minden előfordulás
+    - Hasznos konfigurációs fájlok szerkesztéséhez</code><pre><code class="language-bash">87. sed -n '1,5p' file.txt
+     – Sed sor tartomány
+
+    - Csak az 1–5 sorokat írja ki
+    - -n = alapértelmezett output tiltatása
+    - p = print</code><pre><code class="language-bash">88. find . -type f -name "*.log" | xargs grep "ERROR"
+     – xargs példa
+
+    - find parancs outputját adja át a grepnek
+    - Nagy fájlok és sok fájl kezelése hatékonyan
+    - Pentest és sysadmin log elemzéshez</code><pre><code class="language-bash">89. mapfile -t lines &lt; file.txt
+    echo "${lines[0]}"
+     – mapfile
+
+    - Beolvassa a fájl összes sorát tömbbe
+    - -t eltávolítja a sorvégi newline-t
+    - Tömb indexeléssel elérhetjük a sorokat</code><pre><code class="language-bash">90. coproc myprocess { long_running_command; }
+    echo "PID: $COPROC_PID"
+     – coproc
+
+    - Parancs futtatása háttérben
+    - COPROC_PID tartalmazza a PID-et
+    - Interaktív vagy párhuzamos folyamatokhoz</code><pre><code class="language-bash">91. select option in "Start" "Stop" "Exit"; do
+        echo "You chose $option"
+        break
+    done
+     – select menü
+
+    - Készít egyszerű interaktív menüt
+    - Felhasználó választ számot
+    - break kilép a loopból</code><pre><code class="language-bash">92. #!/bin/bash
+    for ((i=1;i&lt;=5;i++)); do
+        echo $i
+    done
+     – C-style for ciklus Bash-ben
+
+    - ((init; condition; increment))
+    - Tipikus numerikus iterációhoz</code><pre><code class="language-bash">93. tail -f /var/log/syslog
+     – Valós idejű log megfigyelés
+
+    - tail -f folyamatosan írja ki a fájl végét
+    - sysadmin feladatokhoz</code><pre><code class="language-bash">94. grep -rl "TODO" ./projects
+     – Rekurzív keresés
+
+    - -r = rekurzív
+    - -l = csak a fájl neveket írja ki
+    - TODO comment-ek felderítésére</code><pre><code class="language-bash">95. diff &lt;(ls dir1) &lt;(ls dir2)
+     – Process substitution
+
+    - &lt;(command) → ideiglenes fájl
+    - Két parancs outputját diff-eljük
+    - Hasznos konfiguráció összehasonlításhoz</code><pre><code class="language-bash">96. awk '{if($3&gt;100) print $0}' data.csv
+     – Awk feltételes kiírás
+
+    - Csak a 3. mező &gt; 100 sorokat írja ki
+    - Log és CSV elemzéshez gyakori</code><pre><code class="language-bash">97. sed -i 's/DEBUG/INFO/g' app.log
+     – Sed in-place csere
+
+    - -i = fájlban közvetlenül módosít
+    - DEBUG → INFO
+    - Automatikus log tisztításhoz</code><pre><code class="language-bash">98. find . -type f -name "*.sh" -exec chmod +x {} \;
+     – Fájl jogosultság módosítás
+
+    - find minden .sh fájlra
+    - chmod +x = futtathatóvá tesz
+    - -exec {} \; minden találatra</code><pre><code class="language-bash">99. awk -F: '{print $1,$3}' /etc/passwd
+     – Awk több mező kiírása
+
+    - : elválasztó
+    - $1 = username, $3 = UID
+    - Sysadmin feladatokhoz</code><pre><code class="language-bash">100. tar -czf backup.tar.gz /home/user/
+     – Backup létrehozása
+
+    - tar archívum készítése
+    - -c = create
+    - -z = gzip tömörítés
+    - -f = fájl név</code><pre><code class="language-bash">101. rsync -av --progress /src/ /dst/
+     – Fájl szinkronizálás
+
+    - -a = archive mód
+    - -v = verbose
+    - --progress = folyamat mutatása
+    - Sysadmin feladat</code><pre><code class="language-bash">102. ssh user@host 'ls -la'
+     – Távoli parancs futtatása
+
+    - SSH-val futtatjuk a parancsot
+    - Nem kell interaktív login</code><pre><code class="language-bash">103. scp file.txt user@host:/tmp/
+     – Távoli fájl másolás
+
+    - SCP = secure copy
+    - Lokális fájl átmásolása remote gépre</code><pre><code class="language-bash">104. nc -zv 192.168.1.10 22-80
+     – Port scan netcattel
+
+    - -z = scanning mode
+    - -v = verbose
+    - 22-80 = port tartomány</code><pre><code class="language-bash">105. curl -s http://example.com | grep "Welcome"
+     – HTTP response vizsgálat
+
+    - -s = silent mód
+    - Csak a tartalmazó sorokat írja ki
+    - Pentester feladat</code><pre><code class="language-bash">106. awk '{sum += $2} END {print sum}' data.txt
+     – Awk összegzés
+
+    - Minden sor 2. mezőjét összegzi
+    - END blokkban írja ki az eredményt
+    - Hasznos log vagy CSV elemzéshez</code><pre><code class="language-bash">107. sed '/^#/d' config.cfg
+     – Sed komment törlés
+
+    - ^# = sor elején # karakter
+    - d = delete
+    - Eredmény: csak a tényleges beállítások maradnak</code><pre><code class="language-bash">108. xargs -n1 echo &lt; list.txt
+     – xargs egyszerű példa
+
+    - -n1 = minden argumentumot külön parancsra ad
+    - echo minden sorra fut
+    - Több soros fájl feldolgozására</code><pre><code class="language-bash">109. mapfile -t users &lt; /etc/passwd
+    for u in "${users[@]}"; do echo $u; done
+     – mapfile + array iteráció
+
+    - Beolvassa a teljes /etc/passwd-t tömbbe
+    - foreach ciklus kiírja soronként
+    - Sysadmin script minta</code><pre><code class="language-bash">110. coproc ping_proc { ping -c 5 8.8.8.8; }
+    read -u ${ping_proc[0]} line
+    echo $line
+     – coproc olvasás
+
+    - ping fut háttérben
+    - read -u olvassa a coproc outputját
+    - Parancs output feldolgozása live</code><pre><code class="language-bash">111. select action in "Start" "Stop" "Restart" "Exit"; do
+        echo "You chose $action"
+        break
+    done
+     – Select menü bővítve
+
+    - Interaktív menü a felhasználónak
+    - Break kilép a loopból
+    - Gyakori admin script UI</code><pre><code class="language-bash">112. find /var/log -type f -name "*.log" -mtime -7
+     – Friss logok keresése
+
+    - -mtime -7 = az elmúlt 7 napban módosított fájlok
+    - Sysadmin és audit script-ekben hasznos</code><pre><code class="language-bash">113. tar -xzf backup.tar.gz -C /tmp/
+     – Archívum kibontása
+
+    - -x = extract
+    - -z = gzip
+    - -f = fájl név
+    - -C = cél könyvtár</code><pre><code class="language-bash">114. grep -E "ERROR|WARN" app.log
+     – Extended regex grep
+
+    - -E = extended regex
+    - Keres ERROR vagy WARN sorokat
+    - Log elemzéshez</code><pre><code class="language-bash">115. awk -F, '{if($3&gt;1000) print $1,$3}' sales.csv
+     – Awk CSV feltétel
+
+    - -F, = mező elválasztó
+    - Csak ahol 3. mező &gt; 1000
+    - $1 = név, $3 = érték</code><pre><code class="language-bash">116. sed -n '/ERROR/p' app.log
+     – Sed sor kiválasztás
+
+    - -n = csak a p parancs által meghatározott sorok
+    - /ERROR/ = regex mintát keres
+    - Csak ERROR sorokat ír ki</code><pre><code class="language-bash">117. find . -type f -size +10M
+     – Nagy fájl keresés
+
+    - +10M = 10MB-nál nagyobb fájlok
+    - Sysadmin vagy backup szűrés</code><pre><code class="language-bash">118. xargs -I{} mv {} /backup/
+     – xargs argument replace
+
+    - -I{} = minden input sor helyére {}
+    - mv minden fájlt /backup/ könyvtárba
+    - Hasznos batch file move script</code><pre><code class="language-bash">119. awk '{gsub(/foo/,"bar"); print}' file.txt
+     – Awk string replace
+
+    - gsub(/foo/,"bar") = minden foo → bar
+    - print = kiírja a módosított sort
+    - Hasznos inline text processing</code><pre><code class="language-bash">120. sed -i '/^$/d' file.txt
+     – Sed üres sorok törlése
+
+    - /^$/ = üres sor regex
+    - d = delete
+    - -i = fájlban közvetlenül módosít</code></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre></pre>
 <label id="business-english"><input type="checkbox"/> Business English mondatok</label><p><a href="https://elsaspeak.com/" target="_blank">Elsa pronounce help</a></p><p><a href="https://quizlet.com/" target="_blank">Quizlet</a></p>
-<p>I need to schedule a meeting for tomorrow. → Meg kell szerveznem egy találkozót holnapra.</p>
-<p>Could you send me the latest report? → Tudnád elküldeni a legfrissebb jelentést?</p>
-<p>Let's review the project milestones. → Nézzük át a projekt mérföldköveit.</p>
-<p>We should brainstorm new marketing strategies. → Új marketing stratégiákat kellene ötletelnünk.</p>
-<p>Please confirm your availability. → Kérlek, erősítsd meg a rendelkezésre állásodat.</p>
+<p>Let's schedule a follow-up meeting to review the progress. – Ütemezzünk egy következő megbeszélést az előrehaladás áttekintésére.</p>
+<p>Please keep me updated on any significant developments. – Kérlek, tarts naprakészen minden fontos fejleményről.</p>
+<p>We need to align our strategy with the client's expectations. – Össze kell hangolnunk a stratégiánkat az ügyfél elvárásaival.</p>
+<p>This proposal should help streamline the current workflow. – Ez a javaslat segíthet egyszerűsíteni a jelenlegi munkafolyamatot.</p>
+<p>Could you clarify the main objectives of this project? – Tudnád pontosítani a projekt fő céljait?</p>
 <hr/>
 <label id="b2-c1-words"><input type="checkbox"/> B2 → C1 szavak</label>
-<p>Comprehensive → Átfogó</p>
-<p>Facilitate → Könnyíteni, elősegíteni</p>
-<p>Substantial → Jelentős</p>
-<p>Implement → Megvalósítani</p>
-<p>Mitigate → Enyhíteni, csökkenteni</p>
+<p>Enhance – fejleszt, javít</p>
+<p>Allocate – kioszt, erőforrást hozzárendel</p>
+<p>Implement – bevezet, megvalósít</p>
+<p>Mitigate – mérsékel, csökkent (kockázatot)</p>
+<p>Assess – felmér, értékel</p>
 <hr/>
 <label id="business-phrases"><input type="checkbox"/> Business English kifejezések</label>
-<p>Touch base → Kapcsolatba lépni</p>
-<p>On the same page → Egyetértésben lenni</p>
-<p>Circle back → Visszatérni egy témára</p>
-<p>Move the needle → Eredményt elérni</p>
-<p>Think outside the box → Kreatívan gondolkodni</p>
+<p>Touch base – röviden egyeztetni</p>
+<p>On the same page – ugyanazon az állásponton lenni</p>
+<p>Move forward with – továbblépni valamivel</p>
+<p>Circle back – később visszatérni egy témára</p>
+<p>In the pipeline – folyamatban lévő</p>
 <hr/>
-<label id="vim-command"><input type="checkbox"/> Hasznos VIM parancs</label><p><a href="https://openvim.com/sandbox.html" target="_blank">VIM Playground</a></p><p># – Szó keresése a kurzor alatt visszafelé (Keresés/Navigáció)</p>
-<p>:wq → Mentés és kilépés</p>
+<label id="vim-command"><input type="checkbox"/> Hasznos VIM parancs</label><p><a href="https://www.vimworkshop.com/challenge?code=N4IgzgLghgThIC4QGIAEBaTnUGlZQGsIBTGYg1AS7FTAC8oA3QjLdAHQDspUAjVAMaoAJqmKoAZqgDmqABaoAlqgBWqCgBtUAW1SdUAe1QAHVAEdUMWqgioArqkaoA7qgAeqAJ6o6XAIKoAEKoAMKoACKoAKKoAGKoAOKoABKoAJKoAFK4qAAyqACyqAByqADyqAAKqACKqABKqADKqAAqqACqqABqqADqqAAaqACaqABaXAAMqACMqABMqADMqAAsqACsqABsqADsqAAcqACcczOz87NLs6uzG7ObXFDGxhrivFDc3IJypDBvMIoCQxNJZBIYHZFLZpDBXuI5AZOMRvIoBOIVFBdARFM5lB9tMidN9pEZOHZbAYNIpGOJjMQoAIFGZoZwMZYoGBjLwAd5IPDnLyYICbKTSIoUfZpDTJFCYVwuGg2OhmgYYAYKNQ%2BBpNQRNawsFxWnJFDQzTZ-pJFDBIKgaSiAHTG03mmgQK1gYgCZGiB3EZ2cE02v2SxGkANcWIGOxwBT%2BlwwhRgAzacQkNwQQOxRQSD32sNiTjCMCBrjAVBcVDVnUGAQUYBVmvNlGQYiiXi6%2BuoRv6Zv96uSlFWH2cEhjgtS5HEJsD5tD0iCZHj2wJiDOAyz-sAXy3zeIxcMUlbJGEW93ferB9EBiknbrBC4F6VhuwTQYzAo0k8hHVGgAh2APCMGadhQFo2gAM-CEidCvhwnDTjYG6WmQ4gSDGVgSLS4hgIoHhenS%2BjEIo0hyLYnCFuOLwaMYcg8Ly0AyNi2g8MIxAaExxDGHhur6HQxBcUxHqCTwigGExBCvMYPAaNivDAjoDgUu4yipuiGr6MYygwEitCkaxYoOHYPGKHxJimn8yimYYabSFAiqcMqbBqhqX4-vqMAAe6ABvXnUP8cEAPQ6IB1KAbB8FcOEHGCemrqTjOnA4MQ3GWha-pcCEBjGN4HoZWGXAFAYdLpTQmWcGkxYHrY%2BXlYVnAdJR1UTnViVcJkBiSmViWJvmIl6MQmZcE0zivG0yRpC0Cb4v19EQI5zlYLg%2BBEKQAhemQAA0SicJtthQaI36-l5gE8CqXD1NxckcjweGcDK4jMvgAgkFY-xkIGVX7TYQ22CClq4dAcBHj1-qBn4bzXr9maoADA3Q7eYNhoGZR0jAzgwDCuGpumf27cjTqLfB6QtRA-7eTIHl-mdUWcLkxB0loUxbgzTNzHuNZsxxiycwO3NaMsW6BEyFAQEYAsc5wIvduLeSMzzLOcC%2BKqFIQMCQQQO0yfC7IplrShgNolAQBo2oXZwV0MvDCVemOB4cnY92yDwrECBqgZW4ytUJQmTuSi7JLuwYnvcd7PU61AcKvAo-sPXDQce0VhBPfRD3EDQH0BmrBDiESZB-OKmcRo6DRhwDz3p6WxOqylZBgNqIUbRGdM5oeA0bjAojsCA0kfD3cOHpX0jiDCofvEy8XiJ33cgF8PwOSAfUKD36rij3ga5AYBoYVYPfMnyA-fKIw%2Bj7YCuAs4WeBtlnDYTAujDwHlYgMCJAD3LPfYdIG81y5rRQF4DtXgdgJASFIDtQBcl3InUphbQIoDwFWCQqOFc7VpaIMXOuIwqCaroKaO8GEiZiwGFcOLYwI1CG2HxCQ1wvAJLi20FwbopAIDonArQKh9piB5mYaw9hWhuQ0lsFjMiC0gyAMMFKDMq4GoAP4NgmGsiUR-2Wt0UCHDDpU1gYBOmTRYqvR6jI5ejgRoGJ9gVKUs0FDdDMR8QxbUfQaDsNofQ1jQgQC8ugRgRUSpT1oOY8SbikyGEusQdAXp7E%2B3EHJO0kTvRsOJO46QPjlZORJh0KGMABBcnECFLezh1q5O0Z5OBbAuCsVzj1EyDJsm5KKn4HAMRWiTRaLkMofQoj1BCH4JoURjQGHBB8Nocg0g0AKIoQYxBIghCgPorgCQHCjnRhY8qpCilei4NILoyzWHVKyTkzZaSlrYAAGtgHoHFCAth9TaF4JKf8AhFCazpjFD4oIeAz0HqISUP0s4IDhm8funBsq5QTvebsx8TBclBP8nsg02wdi7BQXBE4LwhDTiPBOdtxyO2doIPE3zdo-RRGQv6X0yZKU4ood4MSww0HcQAPkZVwJqkp2ITm0HYaltLEoMpCQAHgFR1Lq%2BguU8uGf6fl%2BZMgjTGqYZ68JXqkGlQoGAgwuBGicsgNAuUPTEgINBSs6T0AACpVQ%2BmEAHAFlIJDoBOGahCPdnUgC4JUTw%2Br9DvklNANwFoEjUy8pBLgUQ4I8ENaIYG0ANCsToAwBOHxpAQB8rwfg7rPV6E8BxECYhCSCTLK6wtjlFDaGMOqKkYAuAlrLSDMAnhK2UVLeWkkHoq1NpBrrYQqY201pEUlatzaJB2HZOLakDaB0g2xnAbeGhx3ttsE4qJQS529rhnW9k4kuCQlTEue2mYaT8AnQu5cf1WLcBHjAVRqpugU3FnQF52oIAAFvjBOwNOU5qEAAD6zArAAF51gLC3bqEEP7YCoAA8sR0DwnhcAFGB-9L9kgcV1DtdNSJOAAEJnWcHodSBDEG2hQiSohFEBGAPFGnFwGkkByOoAANqzB2gsHaywdprB2psAAulwCAJkPh0YABRMcWKxgAlHBwSdHgAiZYysC8VrXrSZ7ovAFIme68B7gChYz4TXLViBxCAJtYo0EpFyJ95N9avirVIH1BHGUXAQFueu3LbAAZ7uezwBhU06B9RcHDHFcy7W-b%2BiDAHZhTCc5eSwGdXOEZ7sQb8B4NCAEVAfzrqUSzuIFF5sLnOLxZALiL0PntB%2BYizhlWy0QiKAIM4qzH7d5KAJrrEegnNhiZyzWYwWMxyCYkD3aMI4at1aUH%2B4AihdwgAk2kq%2BZlR5jns6gSLW47OhfQOFq9eQzQQB2vonbER0S2GyqWsg-w9rLus3tVksAM6Efo24U1pqliNY8N1FrxBhNTDEzxlEREv1gGu-XQjwAHtPckOqdwzXxSfbE0oKQHgACkiwwtLYU4d-7gPbsAZBwC0Hz2Ievf0O9trYndMnLiAAH-BIwSgnAs0UA-exKQcJUoQEE9wNMf6e59D-GeKbnXqwup7lEb8lyYCAEdASQVOUm088ELjLzZus%2Br6z3ZDGhUM9g58Qbc2GpvOcErGfQHxODs%2BxMQabL5YjS5p3T%2B08lgTePAi8YQogANyTuYpNwO1PC49QAAai8MTGKPoYD-nFpe6qUhtCeC-exEPIJ1R9eHQIDrW4AACQ6R0ztLJjV4YAk-smm82JnLh4RZME6a2A0gwA7UewQMaMBq%2Bp%2Bi4rnrbOBvW9l7mlL1ye5F7nHltzkhk8V6rzX1AdeG9N75iYNvgmO-U675Sf8ys9ct5rGQPjMAiexc4vrrfbiy%2B1Mcmn6PsfvRr3D1wEvcfL-ti-Zn16QTBNuGb635X-WQDB7v8IAFIPJv97Vib6G7uBPabZlD0DkwaBeZag0B%2BQ%2BS1bmxaoCCxI0B%2BCNrgQC6cLeiKBY4vxNQECITOCr5bhbgl5fpfqSgwgUGCaRISA7Ra5v5zh0GOha6EZa6kHRYl7ciMgEC0EcQSBMEDjAHb6SA9zAAsFa7bgki5w0B3QxjFgVbsioERCDKCboElrgRCHYFPJ4E9yzLNQzgK41hkE8LYGED8EaCCFYG5YG6iGf4SECGsFm7SFAT1r9DbwSC66OQoFcg0CzJs4aGsQaDaE8G6E0DuYgAGaZTGGC5cFmE8EWF0HaG2EH5iEgCOFWHOFpiuFQDuEFDECkLeHHKvi4C0jGYfAM5aqeI%2B5bgeDhaoAhRKxDQYjGC2DjCkAGDhC0hmhBJRAigQ5chiBYFK69af44DlEkAaB-7a595bqSjgTQEjFz4DYLHq7eD3gEAUBDoLRr6VbYA5jDK5wCRmw0ANZzZfoyT5iRFASlofCOgQDDQZbuI5QHh9YXFXFyA7Q9zOA9w7QOwGBWoPRc4gC2r2p95rqSBYESCOiYzYzz4gDobEj0A%2BpQB%2Bo0DHSlLBqKh7GcAvEMgm7YQCafHfEgCXogD-HsiAkBwglglHAQlDESBYGopD4wlkBQDCCCYW56bYAJAHikBh4Q7ahTqClWCM5mFn4jwm6cDaGNbKBvbQ4yk2E1ieC4EaA-KmqKCORSlfreZqAAaSlvHtZboQ7MBaDdQ6l6kjF%2BHVhoAineSbZ%2BDrpCAhR%2BBjREIfpcieDsgiBmFenshfrQBgB8FKlbhQDun-TOniSOhgAfDcSCZTDQaAExZpGcBgFpL%2BlCAl6sSShfqZlclYGD4RFwwRlrrelPIhz2QiQwCCaZmBlch8GzBiaQLOn1nBmCYLBibJkiE75gCuYNr7GqhXQjweAfpXFvT6AAbknsDsCabsDOB%2B4zmaYZasQQAHzFmfTYTFiLGCbjmkCcCkmhpgh5QZx0C2D0A%2BR0jSDOi4nk63zGIFDfBRyLgfpp64KZhnrPkR7Zkx7vls7aGjHt4gBRD2wjgnpPHJmqkcRnjRaAUIlRB%2BrHp7q7HcnuJn5-kFlbhwU9yBAHhSg8B-m8ir7cnk7FTCDcpKDzoUy6Laj0T0CcAUwAxjmKBgZaAGkghyCOjaRcCdqsWEadqpiOidrK4iYRZfabZpBvSjqzomCUDqn-hVGYBcC1LaDFk0Zs5TrSWlgqVmaJJ7SCaMZbQsbLBcZdlcA%2Bh3JqXbaCaaXZ6OgWX3LcB6X56GXGVcbMZmUlEuTZTq4JIXbGByXCAKWXbsSsjEB0aLp%2BXIilihV2AfauVbQmXTY%2BjDpvQRXUhLrRWOjZSpWkAImAJKockFWLwkWlFW6L505yBPqMBhSKUIQs6CQIl%2BDAhMJr5mmEa37wingP7J56Uw5wYuJ8UAYcmcmbA7T7ClUuQTItQSByXpj8biDDoyT1jPyenAK171xD4JVsYcbcabatApr8Apgag0ACjPzahdoEAuI1SPLPKXbipsL%2Bj-aeIFYupHmJZy5jiHXHUGANpnXxxIm4bfA3lC5eX6YRKeLPy7zaD-h0C6IfpsGRF%2BA0gYg4bPmEbLBKwSD-WyAAYOFSGGw9jPnSFZqwA0DUjCAg1g3YDTUcqzXDKvGh7h6Xb1FbD%2B4rAYDI6mrrCNHI5BQhTzBI5LCPYrBcDeAAYeAABkcwqAAAPktqgAAHoy1CrI7MpSyDlBAzo6Di5MxxR1XAZRyEatDEaG3SBLAAaxDgRHJ4YaBfpA541yQuyHgSBO1LAQ6IS2Cu1RybZ4DGAbTUi2A%2BQXICR0XIgaAWbw3IGpjGD214HbACoXCoACrhZKya0i78jqi-Vw7oAcReiXaQAghOwFZlA4ADxBYm1xW5r50DZ%2BBpC5BKHk59DgRQjk21KimoCCaA0rCOhHB%2B6w4fpBbs6oAIBu5vHbWmWw4OYLDWkXKbaPlrlyDoCHLiBd0eoYY90Rb92XZmlV0AZAacCrnMiODgRxXMnFKzDKlAG75D4Jbfg4bNgr2LBX0xZ9n5aRG5zXIpYP01hP1fov2D4FYw2VoZaa3lUy625sJQwG2R5wwu5foUh3Iqq1kAo%2BrAKoNjgD0OY%2BqFl2H6A8AB6abU2qjhCajXVji3WQSnWQ3xyM51iEYjUIMuLCilgUFdoCAUGbbgM27eDqX-jtW-qKAUzMCXaP7Fn0bu4KQ8BuC45%2B4iaSOe645PY-ZFl3YSAk7g5YQExiM-aa2VAajRy6A05YpjkrGInr3Il0ConoklJ-iQTqBGofA7EMI3kkU6pBC6hbG0B0CXmJbqA0oay8DUVgD-iwSOThNpKtAlT-iprKBIgh0ABffA5AxAdAwg1AUWbqdFKGxdrmWMGINAFI6uPArIFolEvAnFtQ0IAOVdskCSTspcpDKIQgo4XoyqfGi4NI0g3KwE3Kr60AoIXougkNkAigYVggsYfZ1cnAxQ2Ieg3Kck5gYE2gO00cIEikpGO0FlRIXacMO0KYwIHwp1RCZu%2B2lEeEgYlQKGNUGc4zSCaYY4LiIg1I6opcyNYzyzSzczUSTsO0EgTIZkvRchdgr06oO0eT6It2lI-xeajzRjfTulxADByegYTQTsBJVqFy9IEkNUigpc%2Bifo9TpYpMJAF6Yg1TOzduAgxdzir0xdrE0g3AgYNQ1T4z1LtovzOgBuNAIE0A9I9Em%2B8IcMIL4e%2BzxAugrEFyrsIIbCp14rkCtgPqpA5FErUcvwUAdg3T4giWgkIgig2IgYLCozICziug3woINKfZugSupW5o%2Bg-zILigIC5N2SBIIrxdurELBTJgv1cVBc1L9yNIPAIQsYUAxAAA3L4jAPclS1Qa7NSBnGwuIORXi1UPCBnHgp2MfEQl2rqDAPi%2B2HoMSNdtoKXFVI4DzKVvpP9GmP9Jq1XaOFq7muKzVC4oGMVNG-KfoJa083hDW7qwyOxJIACzRhlFAOqKzo09OEIDdMXRSOyDtCBOjEK808AnJMWEQkzP8SPIXTQIJJAvW5GJwEa2wia082whuuRZyuBLFkVb9Org050LYF61C5xPk7dgeCWqXCG-CPclvtW3DLWySLGGaO2%2BqDG91EM0sxaCmyYDdKQADOqNwJ9FUNc-bDU%2BINSeSL0f8RS4CbtNrAK4JEK1AOC2%2B%2BiLgXaztFaga45FqkqDqmgO%2BL4zu7WF42aMbKbNQElFwFvGQLoD27oLmxDn24B-u7um0yQP%2BxyTSmaE8vHIFlmLxxOwJzxE88J1YKJ6c1s9FQknYXA7J2APJ7IIp5vCp0oGp0Jy85pyc7Wzp3tHp9J1atpEZ8-KZ8p-xxZ1a883mwB9pxJ457GAZy58Z7mmPB5%2BK15%2Bp9Z353ZwF%2B00FzJyF258ImWJwPR9qmgFEzVbE7Y0Gt4yx45LMKXFELOmlsdVwAsKXAUGFFahQBV5wFBikLAKxHV7QOqFwGsKXMUB9e2DVu1xHpsKXKcsmm1w11wNg%2BkwJLYJsRQLMBN0oFN7q7N7zJwJN5QNN2xxQELGt4txt8t54xQGsBE4-npfIChgYDzl5JybDr2K0wm46LqNIAiWrhruotoLrmJpG3fBDoJu8k1gBlMOG01onRFsD4oH7tvXd9FQ909wie%2BP%2BNoACgPAHooF90%2BBj2khl4x%2B42Mpx6lsIOVx%2BCwDwN%2BOqDQLnPXAFKk1FiBEYyWo4Az3T4z-T6zyz%2Bz8z5z0z9z2z1z7zzz7xom79HaCQCL0L6L7VOL1L2LzL5L7L8L3L4rwr8rxL%2BZTlN4D6GCprxr%2Br0uFr7r9r3rzr-ryb8b2b0bxb4b1b%2Br3R0pccox20NE7lz9RQPG3QFWRFAYHQN7t8LiA9IFFQL5P5GAIFJk5wBnVTOTzoL6ADDwMmsH4FKXMagUJQCZ9%2BNH9uf9DYH5KcYn3EUefIVYBaPHz5BoP8BAClknyGmGgN4TcA9SPNJBFX%2BHzX8dagGHk%2BrpCCE3-n63xDhxybKFCmGX9383wX7Xx313xAJBDtCX2X4JCljtESO7xxaP7b06pl%2B4-UMfDulJPCGtGQAQGH1yMIFICoLVsD2YIUlYBAJ4NCD4G4AIE4IfdrF1HYHlGQM4BYBoAQCoMD64rwCcAn9mccgc-uYGv72BxIpgOgI-ycC8BD6WgY1DcGWBrBNgOwfYEcFOAzApgpwI4PsB2CbA1gywBYNcBuALBlgKA1AdsE2BoD0BGAzAecCmBMCrgZA8gRQLWAcCaBtAugfQIYHnBjUmGNPMgAAAkCORWpLVNRckv0AeAVIygAD8CAYANuFloAA-AAAYMYeM7AcNgAHItojoEKOtj9xfoxMFeSWorQRzCDkAaeTDHEU1R28GODvboKnzABpZPMW3RyHx0i6CcfOInWzuJ1aaBcrASXOTilzHhxAnYHIJdgCFkhMhcm55bwaWmVa4Ezm3oRwNSEpBXF7Q5nC9k8ivZZg4iP7QBDCES7zNimg0LMvq10BetKOMgeEOsygD4t0W14M0PnTLQrhU2BLCoTYHLSmkYQYbMLkhTNI0Z7A5HAps330ZhscUtAKODCFlY7QD0nRclu10Oa3Ze0pHe9iNkWEahh2TyUdu6FjAudt2urEgKWmLrqgnkZQxZjqypBWoQ4cRJpmkMpABJdANwwYZYAwzUsaA-zPYUC264LMeAPwwFhc1QDvMS2YgLqukOcQQArizfewRvxx5oAU%2BsgZND5gH5cc5CeXbyGEzSReDVO3nDTrFwCG6cEuwQ5zqEIU6pc4ieIqLlZ185ac4ugQ0kcFwpEmcqRxqGkT4MJEMjiRDnZkSENc6UjwhHI8zlyJi48j9sTIqTol3JGCi2RwoiLviOi70j-BkokkdKLJGGdQupnakaKMs6%2BCbO-bNUXyI1Esi5Rgw5vpyP1HcjVR9nSTvpwFHaj2Rio2kQaKJHGj7RTnLUWEKU5pJHIFJEANeEQAgBKM%2BUB6AGK1zBj3uzQAQs0D4zCBPAAY9iEZyxhtEgkwY4qO70AgAoviqgHaAbA0A7QpgO0RWjtGEE7RnA-xdajICRaSABUiqRlDtFiD1iBWjYmwC2NgBtjWgHYmAG2PDY7QtoO0BHDtGSA7QCgO0XIDtDjRpcJiKgDiKX21CCZ1EfZDhGRXNwApGAO0boDtBCCeINA3iHaCHEcgHVg%2BuOHaIMGo7CBqO5YkQMWJECViRA4ZajtuDUFpcauw-XRCFBGC%2B8AUngTwN7hvGeAHxP4YCS%2BLS64UzIRzM8hkxMBoZVmxgNLiEE2h5JSY%2B0VBjtDSCQIdofgQ8TtDKA7QYAPYtsfUDS5NRdmIUK6F2htQ7i9x6AfNo5DrgZxG4oQZCQCiCgyIdocgjiXoB2jFAdoCABHGACCgU0gopKIKNIH4mCThJ6pUScQGcDiSBAaXPwFm1gJ8BMEVgY4hxBgkIAhERCWgsYGbIj1GAuk2wIJmMkGSaJXiVwOPl3FWTHAlk-ca4DkBBQVAQUAgEFELEj1oA8AuSdaA%2BCrN9s0gVoPxJkrMB0%2BCAEBGAhVT8T%2BAAqRBoyjfHqwH0NASOHrE1AAozAREnaGniymoA08aeHaI6DS4Z1KA-AeiHJGED2NUpAdI-gSgfE5J6pAgHaG2IFSrNGAjoAMUSUEieAGQwYvVBhgDHAwR48AJAGJRADbggAA" target="_blank">VIM WorkShop</a></p><p>:tabnew – Új tab megnyitása (Tab kezelés)</p>
+<p><strong>:%s/old/new/g</strong> – A teljes fájlban lecseréli az "old" szöveget "new"-re.</p>
 <hr/>
-<label id="tmux-command"><input type="checkbox"/> Hasznos TMUX parancs</label><p><a href="https://pwn.college/" target="_blank">Tmux Playground</a></p><p>o – Váltás a következő panelre (Pane kezelés)</p>
-<p>Ctrl+b c → Új ablak létrehozása</p>
+<label id="tmux-command"><input type="checkbox"/> Hasznos TMUX parancs</label><p><a href="https://pwn.college/" target="_blank">Tmux Playground</a></p><p>[ – Kijelölési mód (copy mode) indítása (Kijelölés/Másolás)</p>
+<p><strong>Ctrl+b %</strong> – A jelenlegi ablakot vertikálisan kettéosztja (új panel jobb oldalon).</p>
 <hr/>
 <label id="bash-example"><input type="checkbox"/> Rövid Bash példa</label>
-<pre><code class="language-bash">#!/bin/bash
-# Simple script to list files and directories
-echo "Listing current directory contents:"
-ls -lah
+<p>Egyszerű Bash script, amely végigmegy egy log fájlon és kilistázza a gyanús HTTP státuszkódokat.</p>
+<pre><code class="language-bash">
+#!/bin/bash
+
+LOGFILE="access.log"
+
+while read -r line
+do
+    status=$(echo "$line" | awk '{print $9}')
+
+    if [[ "$status" == "401" || "$status" == "403" || "$status" == "500" ]]
+    then
+        echo "Suspicious status detected:"
+        echo "$line"
+        echo
+    fi
+
+done &lt; "$LOGFILE"
 </code></pre>
-<textarea></textarea>
-<p>Ez a Bash script a következőket használja: shebang (#!/bin/bash), echo kiíratás, ls parancs opciókkal. A script célja a jelenlegi könyvtár tartalmának részletes listázása.</p>
+<textarea cols="80" rows="4"></textarea>
+<p>A script while ciklust használ egy log fájl soronkénti feldolgozására. Az awk parancs a 9. mezőt (HTTP státuszkód) olvassa ki. Egy feltételes if blokk ellenőrzi, hogy a státuszkód 401, 403 vagy 500-e, majd kiírja a gyanús log sort.</p>
 <hr/>
 <label id="powershell-example"><input type="checkbox"/> Rövid PowerShell példa</label>
-<pre><code class="language-powershell"># List all processes with memory usage
-Get-Process | Sort-Object WS -Descending | Select-Object -First 5
+<p>Egyszerű PowerShell példa, amely log fájlban keres sikertelen bejelentkezési eseményeket.</p>
+<pre><code class="language-powershell">
+$logFile = "auth.log"
+
+Get-Content $logFile |
+ForEach-Object {
+    if ($_ -match "Failed password")
+    {
+        Write-Output "Suspicious login attempt detected:"
+        Write-Output $_
+        Write-Output ""
+    }
+}
 </code></pre>
-<textarea></textarea>
-<p>Ez a PowerShell példa a Get-Process parancsot használja a folyamatok lekérdezésére, majd a Sort-Object segítségével memóriahasználat szerint csökkenő sorrendbe rendezi, végül a Select-Object -First 5 a legnagyobb memóriát használó 5 folyamatot jeleníti meg.</p>
+<textarea cols="80" rows="4"></textarea>
+<p>A script a Get-Content parancs segítségével olvassa a log fájlt. A ForEach-Object minden sort feldolgoz. A -match operátor regex alapú keresést végez, és ha "Failed password" mintát talál, akkor kiírja a gyanús bejelentkezési próbálkozást.</p>
+<hr/>
+<label id="regex-example"><input type="checkbox"/> Regex feladat</label>
+<p>Feladat: Találd meg az AWS Access Key ID-ket egy log fájlban. Az AWS kulcsok általában <strong>AKIA</strong> prefixszel kezdődnek és összesen 20 karakter hosszúak.</p>
+<pre><code class="language-text">
+2026-03-14 09:22:11 INFO user uploaded credentials AKIAIOSFODNN7EXAMPLE
+2026-03-14 09:22:15 WARN possible credential leak detected
+2026-03-14 09:22:20 DEBUG token=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXhhbXBsZQ==
+2026-03-14 09:22:25 ALERT suspicious key AKIA1234567890ABCDEF used from 185.23.44.10
+</code></pre>
+<p>Regex megoldás:</p>
+<pre><code class="language-regex">
+AKIA[0-9A-Z]{16}
+</code></pre>
+<p>A regex az AWS Access Key ID-k mintázatát keresi. Az "AKIA" prefix után pontosan 16 darab nagybetű vagy szám szerepelhet, így a teljes kulcs hossza 20 karakter lesz.</p>
 </div>
 <script>
 document.querySelectorAll(".tab-support").forEach(textarea => {
@@ -120,11 +1188,11 @@ document.querySelectorAll(".tab-support").forEach(textarea => {
     });
 });
 </script>
-<script>
-hljs.highlightAll();
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+<script>
+hljs.highlightAll();
+</script>
 </body>
 </html>
