@@ -64,59 +64,69 @@ textarea {
 <textarea class="tab-support" cols="80" rows="4"></textarea>
 <hr/>
 ```
-<label id="business-english"><input type="checkbox"/> Business English mondatok</label>
-<p>We need to align our priorities before the quarterly review. — El kell igazítanunk a prioritásainkat a negyedéves jelentés előtt.</p>
-<p>Please circulate the updated deck to stakeholders by end of day. — Kérlek, küldd körbe a frissített prezentációt az érintetteknek a nap végéig.</p>
-<p>Let's table this topic and revisit it after we have the metrics. — Tegyük félre ezt a témát, és térjünk vissza rá, ha megvannak a mérőszámok.</p>
-<p>I will loop you in on the email thread for visibility. — Beillesztlek az e-mail szálba, hogy átlátható legyen.</p>
-<p>We should prioritize low-hanging fruit to demonstrate quick wins. — Először az egyszerűen elérhető eredményeket részesítsük előnyben, hogy gyors sikereket mutassunk be.</p>
+<p><label id="business-english"><input type="checkbox"/> Business English mondatok</label></p>
+<p>1. "Let's align on priorities before we commit resources." — "Egyeztessük az elsődleges feladatokat, mielőtt erőforrásokat kötünk le."</p>
+<p>2. "Could you provide a brief update by end of day?" — "Tudnál egy rövid frissítést adni a nap végéig?"</p>
+<p>3. "We need to escalate this to the steering committee." — "Ezt tovább kell léptetnünk az irányító bizottsághoz."</p>
+<p>4. "Please circulate the minutes after the meeting." — "Kérlek, küldd szét a jegyzőkönyvet a megbeszélés után."</p>
+<p>5. "I'll loop in the legal team for compliance checks." — "Bevonóm a jogi csapatot a megfelelőség ellenőrzéséhez."</p>
 <hr/>
-<label id="b2-c1-words"><input type="checkbox"/> B2 → C1 szavak</label>
-<p>Mitigate — enyhít, csökkent (kockázatot, hatást)</p>
-<p>Scrutinize — alaposan megvizsgál, ellenőriz</p>
-<p>Ubiquitous — mindenütt jelenlévő</p>
-<p>Coherent — koherens, összefüggő</p>
-<p>Nuance — finom árnyalat, kis különbség</p>
+<p><label id="b2-c1-words"><input type="checkbox"/> B2 → C1 szavak</label></p>
+<p>1. "mitigate" — "enyhíteni, csökkenteni (kockázatot)"</p>
+<p>2. "ubiquitous" — "mindenütt jelenlévő, elterjedt"</p>
+<p>3. "ameliorate" — "javítani, jobbá tenni"</p>
+<p>4. "pragmatic" — "gyakorlatias, pragmatikus"</p>
+<p>5. "consolidate" — "egyesíteni, megerősíteni"</p>
 <hr/>
-<label id="business-phrases"><input type="checkbox"/> Business English kifejezések</label>
-<p>Circle back — visszatérni egy korábbi témára</p>
-<p>Touch base — rövid kapcsolatfelvétel, egyeztetés</p>
-<p>On the same page — egyetérteni, ugyanazon az állásponton lenni</p>
-<p>Move the needle — valós, mérhető változást elérni</p>
-<p>Run it up the flagpole — kipróbálni egy ötletet, visszajelzést kérni</p>
+<p><label id="business-phrases"><input type="checkbox"/> Business English kifejezések</label></p>
+<p>1. "touch base" — "rövid egyeztetés, kapcsolatfelvétel"</p>
+<p>2. "take offline" — "külön megbeszélni (offline)"</p>
+<p>3. "run it up the flagpole" — "felvetni döntéshozóknál"</p>
+<p>4. "move the needle" — "valódi előrelépést elérni"</p>
+<p>5. "circle back" — "visszatérni egy témára később"</p>
 <hr/>
-<label id="vim-command"><input type="checkbox"/> Hasznos VIM parancs</label>
-<p>:%%s/\v(\s+)$//e — minden sor végéről eltávolítja a fölösleges szóközöket (trim trailing whitespace)</p>
+<p><label id="vim-command"><input type="checkbox"/> Hasznos VIM parancs</label></p>
+<p>:%s/\v(\s+)$//ge — Eltávolítja a sorvégén lévő felesleges szóközöket az egész fájlból</p>
 <hr/>
-<label id="tmux-command"><input type="checkbox"/> Hasznos TMUX parancs</label>
-<p>tmux new-session -s work \; split-window -h \; select-pane -t 1 — új munkamenet 'work' néven, majd vízszintesen elválasztott pane-ek létrehozása</p>
+<p><label id="tmux-command"><input type="checkbox"/> Hasznos TMUX parancs</label></p>
+<p>tmux new -s session_name — Új tmux munkamenet indítása megadott névvel</p>
 <hr/>
-<label id="bash-example"><input type="checkbox"/> Rövid Bash példa</label>
-<p>Íme egy rövid script, amely az Nginx access logból kigyűjti azokat az IP-címeket, amelyek 5xx HTTP válaszokat kaptak, és a top 10-et listázza:</p>
+<p><label id="bash-example"><input type="checkbox"/> Rövid Bash példa</label></p>
 <pre><code class="language-bash">#!/usr/bin/env bash
-LOG="${1:-/var/log/nginx/access.log}"
-# Szűrjük a 5xx státuszokat, kinyerjük az IP-t (1. mező), megszámoljuk és rendezve kiírjuk a top 10-et
-grep -E '" [5][0-9][0-9] ' "$LOG" | awk '{print $1}' | sort | uniq -c | sort -rn | head -n 10</code></pre>
+set -euo pipefail
+
+DIR="/var/log/myapp"
+OUT="/tmp/logs-$(date +%Y%m%d).tar.gz"
+
+mkdir -p "$(dirname "$OUT")"
+find "$DIR" -type f -mtime -1 -print0 | tar --null -czf "$OUT" --files-from=-
+echo "Created archive: $OUT"</code></pre>
 <textarea class="tab-support"></textarea>
-<p>Magyarázat: a script grep-et használ reguláris kifejezéssel a 5xx státuszok kiszűrésére, awk-val kinyeri az IP címet, sort-tal és uniq -c-vel megszámolja az ismétlődéseket, majd sort-ol és head-del korlátozza a kimenetet. A cél: gyorsan azonosítani, mely kliensek generálnak szerveroldali hibákat.</p>
+<p>Használt szerkezetek: shebang, erre vonatkozó set opciók (errorexit, undefined vars, pipefail), változók, mkdir, find -print0 és tar --null --files-from=- a null-terminated fájlnevek biztonságos átadásához. A script célja: az elmúlt 24 órában módosult naplók összegyűjtése és tömörített archívumba csomagolása.</p>
 <hr/>
-<label id="powershell-example"><input type="checkbox"/> Rövid PowerShell példa</label>
-<p>Egyszerű PowerShell parancs, amely az Application log utolsó 200 hibáját csoportosítja forrásonként és a legtöbb hibát okozó forrásokat mutatja:</p>
-<pre><code class="language-powershell">$events = Get-EventLog -LogName Application -EntryType Error -Newest 200
-$events | Group-Object -Property Source | Sort-Object Count -Descending | Select-Object -First 10 | Format-Table Count, Name -AutoSize</code></pre>
+<p><label id="powershell-example"><input type="checkbox"/> Rövid PowerShell példa</label></p>
+<pre><code class="language-powershell">$Path = "C:\Logs"
+Get-ChildItem -Path $Path -Recurse -File |
+  Sort-Object Length -Descending |
+  Select-Object FullName, @{Name="SizeMB";Expression={[math]::Round($_.Length/1MB,2)}} -First 10 |
+  Format-Table -AutoSize</code></pre>
 <textarea class="tab-support"></textarea>
-<p>Magyarázat: a script Get-EventLog-dal lekéri az Application napló utolsó 200 hibáját, Group-Object-tal forrásonként csoportosít, Sort-Object-tal csökkenő sorrendbe rendezi a csoportokat, és Select-Object-tel kiválasztja a top 10-et. Használat: gyors áttekintés a leggyakoribb hibalefutásokról.</p>
+<p>Használt szerkezetek: változó, Get-ChildItem a fájlok listázásához, pipelining, Sort-Object rendezéshez, Select-Object számított oszloppal a méret MB-ban, és Format-Table megjelenítéshez. A script célja: a megadott mappában található legnagyobb 10 fájl gyors listázása.</p>
 <hr/>
-<label id="regex-example"><input type="checkbox"/> Regex feladat</label>
-<p>Feladat: Találd meg a naplóbejegyzésekből a JWT (JSON Web Token) tokeneket, amelyek tipikusan három, pontokkal elválasztott base64url-szerű részből állnak (header.payload.signature).</p>
-<p>Példa logok (4 sor):</p>
-<pre><code class="language-text">127.0.0.1 - - [25/Mar/2026:10:12:34 +0000] "GET /api/data HTTP/1.1" 200 123 "-" "curl/7.68.0" "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCIsImlhdCI6MTYwNzYwMDAwMCwibmJmIjoxNjA3NjAwMDB9.dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
-192.168.0.5 - - [25/Mar/2026:10:13:01 +0000] "POST /login HTTP/1.1" 401 64 "-" "Mozilla/5.0" "Cookie: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyMyIsIm5hbWUiOiJKb2huIn0.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-10.0.0.8 - - [25/Mar/2026:10:14:22 +0000] "GET /api/user?id=1 HTTP/1.1" 200 512 "-" "-" "-"
-172.16.0.2 - - [25/Mar/2026:10:15:33 +0000] "GET /auth HTTP/1.1" 302 183 "-" "PostmanRuntime/7.28.4" "Authorization: Bearer abcdefghijk.lmnopqrstuv.wxyz1234567"</code></pre>
-<p>Regex megoldás (kereséshez használható, reális mintázat):</p>
-<pre><code class="language-regex">(?<!--[A-Za-z0-9_-])([A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,})(?![A-Za-z0-9_-])</code--></code></pre>
-<p>Magyarázat: a regex három, pontokkal elválasztott base64url-szerű részt keres, minden rész legalább 10 karakter hosszú, elkerüli a false positive találatokat határoló karakterekkel. Használható log-elemzéshez, grep/egrep, ripgrep vagy SIEM eszközökben mint pattern a JWT tokenek detektálására.</p>
+<p><label id="regex-example"><input type="checkbox"/> Regex feladat</label></p>
+<p>Feladat: Találd meg az Apache/Nginx logban vagy alkalmazási naplókban az esetlegesen kiszivárgó AWS hitelesítő adatokat — konkrétan az AWS_ACCESS_KEY_ID és AWS_SECRET_ACCESS_KEY párokat vagy önálló Access Key ID-ket és Secret Key-szerű tokeneket.</p>
+<p>Logminták:</p>
+<pre><code class="language-text">2026-03-25T08:12:34Z INFO User uploaded config: AWS_ACCESS_KEY_ID=AKIAEXAMPLE12345678 AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+2026-03-25T09:01:02Z WARN Environment variables set: AWS_ACCESS_KEY_ID=AKIAZZZZZZZZZZZZZZZZ AWS_SECRET_ACCESS_KEY=abcdEFGHijklMNOPqrstUVWXyz0123456789ab
+2026-03-25T10:22:10Z INFO Token detected: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+2026-03-25T11:45:00Z ERROR Config parse failed for line: secret=U3VwZXJTZWNyZXRLZXlFeGFtcGxlMTIzNDU2</code></pre>
+<p>Megoldás (regex):</p>
+<pre><code class="language-regex">(?x)
+(?:AWS_ACCESS_KEY_ID\s*=\s*(AKIA[A-Z0-9]{16}))|
+(?:AWS_SECRET_ACCESS_KEY\s*=\s*([A-Za-z0-9/+=]{40}))|
+\b(AKIA[A-Z0-9]{16})\b|
+\b([A-Za-z0-9/+=]{40})\b</code></pre>
+<p>Magyarázat: A regex reális mintákat keres: AWS Access Key ID-k (AKIA + 16 nagybetű/szám), valamint 40 karakter hosszúságú Secret-szerű base64-jellegű tokenek. A minta engedi megadott kulcs=érték formát és önálló tokenek találatát is; verbose mód (x) segíti az olvashatóságot. Használható naplóparzolásra és előszűrésre, hogy potenciális hitelesítő adat-szivárgásokat azonosítsunk.</p>
 ```</div>
 <script>
 document.querySelectorAll(".tab-support").forEach(textarea => {
