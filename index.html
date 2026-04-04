@@ -55,117 +55,105 @@ textarea {
 <body>
 <div class="container">
 <h1>Checklist</h1>
-<label id="memory-castle"><input type="checkbox"/>Memoriapalota mai szam:</label><p>732224</p>
+<label id="memory-castle"><input type="checkbox"/>Memoriapalota mai szam:</label><p>100670</p>
 <hr/>
-<label id="daily-challenge"><input type="checkbox"/>Todays challege:</label><p><a href="https://pwn.college/" target="_blank">pwn-college</a></p>
+<label id="daily-challenge"><input type="checkbox"/>Todays challege:</label><p><a href="https://cryptohack.org/courses/" target="_blank">crypto</a></p>
 <hr/>
 <input type="checkbox"/>Bash Challenge:
-<div id="bash-challenge"></div><pre><code class="language-bash">3. #!/bin/bash
+<div id="bash-challenge"></div><pre><code class="language-bash">55. tmp=$(mktemp)
+     – Biztonságos ideiglenes fájl létrehozása.
 
-    number=10
+    mktemp
+    random fájlnevet generál.
 
-    if [ $number -gt 5 ]; then
-        echo "Number is greater than 5"
-    fi
-     – if [ condition ]
-    Bash feltétel szerkezet.
+    Elkerüli a race condition problémákat.</code><pre><code class="language-bash">99. awk -F: '{print $1,$3}' /etc/passwd
+     – Awk több mező kiírása
 
-    [ ... ]
-    Ez a test parancs rövid formája.
+    - : elválasztó
+    - $1 = username, $3 = UID
+    - Sysadmin feladatokhoz</code><pre><code class="language-bash">110. coproc ping_proc { ping -c 5 8.8.8.8; }
+    read -u ${ping_proc[0]} line
+    echo $line
+     – coproc olvasás
 
-    -gt
-    Numerikus összehasonlítás:
-    -gt greater than
-    -lt less than
-    -eq equal
-
-    then
-    Ha a feltétel igaz, ezután fut a kód.
-
-    fi
-    Az if blokk lezárása.</code><pre><code class="language-bash">95. diff &lt;(ls dir1) &lt;(ls dir2)
-     – Process substitution
-
-    - &lt;(command) → ideiglenes fájl
-    - Két parancs outputját diff-eljük
-    - Hasznos konfiguráció összehasonlításhoz</code><pre><code class="language-bash">10. #!/bin/bash
-
-    hello() {
-        echo "Hello $1"
-    }
-
-    hello Adam
-     – hello()
-    Függvény definiálása.
-
-    $1
-    A függvény első argumentuma.</code></pre></pre></pre>
+    - ping fut háttérben
+    - read -u olvassa a coproc outputját
+    - Parancs output feldolgozása live</code></pre></pre></pre>
 <textarea class="tab-support" cols="80" rows="4"></textarea>
 <hr/>
+```
 <label id="business-english"><input type="checkbox"/> Business English mondatok</label><p><a href="https://elsaspeak.com/" target="_blank">Elsa pronounce help</a></p><p><a href="https://quizlet.com/" target="_blank">Quizlet</a></p>
-<p>1. "Let's align on the deliverables before we engage stakeholders." — Egyeztessük a leszállítandókat, mielőtt bevonjuk az érintetteket.</p>
-<p>2. "I'll circle back with an update after the client meeting." — Visszatérek egy frissítéssel az ügyfélmegbeszélés után.</p>
-<p>3. "We need to mitigate the risk by implementing additional controls." — Csökkentenünk kell a kockázatot további kontrollok bevezetésével.</p>
-<p>4. "Please prioritize the high-impact issues for the next sprint." — Kérlek, priorizáld a nagy hatású feladatokat a következő sprintra.</p>
-<p>5. "Could you provide a short brief summarizing the proposal?" — Tudnál adni egy rövid összefoglalót a javaslatról?</p>
+<p>1. Let's align on the deliverables before the end of the week. — Igazodjunk a leszállítandó eredményekhez a hét vége előtt.</p>
+<p>2. I'll circle back with the stakeholder after I review the proposal. — Visszatérek az érintetthez, miután átnéztem a javaslatot.</p>
+<p>3. We need to escalate this issue to the product owner. — Ezt a problémát fel kell tornáznunk a terméktulajdonoshoz.</p>
+<p>4. Can you provide a high-level summary for the executive meeting? — Tudsz egy magas szintű összefoglalót adni az vezetői értekezletre?</p>
+<p>5. The new process should reduce time-to-market for our features. — Az új folyamat csökkenteni fogja a funkciók piacra jutási idejét.</p>
 <hr/>
 <label id="b2-c1-words"><input type="checkbox"/> B2 → C1 szavak</label>
-<p>1. "nuance" — árnyalat, finom különbség</p>
-<p>2. "ambiguous" — kétértelmű, nem egyértelmű</p>
-<p>3. "pragmatic" — pragmatikus, gyakorlatias</p>
-<p>4. "resilient" — rugalmas, ellenálló (pl. rendszerek esetén)</p>
-<p>5. "articulate" — kifejező, világosan megfogalmazott</p>
+<p>1. mitigate — enyhít, csökkent (kockázat, hatás)</p>
+<p>2. ubiquitous — mindenütt jelenlévő, elterjedt</p>
+<p>3. nuance — árnyalat, finom különbség</p>
+<p>4. salient — kiemelkedő, feltűnő</p>
+<p>5. corroborate — alátámaszt, megerősít (bizonyítékokkal)</p>
 <hr/>
 <label id="business-phrases"><input type="checkbox"/> Business English kifejezések</label>
-<p>1. "touch base" — röviden egyeztetni, kapcsolatba lépni</p>
-<p>2. "on the same page" — egyetértésben lenni, ugyanazt gondolni</p>
-<p>3. "run it up the flagpole" — kipróbálni/tesztelni egy ötletet vezetői visszajelzésért</p>
-<p>4. "low-hanging fruit" — könnyen elérhető, gyorsan megoldható feladat</p>
-<p>5. "move the needle" — valódi hatást gyakorolni, előrelépést elérni</p>
+<p>1. touch base — röviden egyeztetni</p>
+<p>2. move the needle — valódi előrelépést hozni</p>
+<p>3. take it offline — személyesebben vagy később megbeszélni</p>
+<p>4. table the discussion — napirendre venni / elnapolni a vitát</p>
+<p>5. low-hanging fruit — könnyen elérhető, gyors nyereség</p>
 <hr/>
-<label id="vim-command"><input type="checkbox"/> Hasznos VIM parancs</label><p><a href="https://www.vimworkshop.com/challenge?code=N4IgzgLghgThIC4QGIAEBaTnUGlZQGsIBTGYg1AS7FTAC8oA3QjLdAHQDspUAjVAMaoAJqmKoAZqgDmqABaoAlqgBWqCgBtUAW1SdUAe1QAHVAEdUMWqgioArqkaoA7qgAeqAJ6o6XAIKoAEKoAMKoACKoAKKoAGKoAOKoABKoAJKoAFK4qAAyqACyqAByqADyqAAKqACKqABKqADKqAAqqACqqABqqADqqAAaqACaqABaXAAMqACMqABMqADMqAAsqACsqABsqADsqAAcqACcczOz87NLs6uzG7ObXFDGxhrivFDc3IJypDBvMIoCQxNJZBIYHZFLZpDBXuI5AZOMRvIoBOIVFBdARFM5lB9tMidN9pEZOHZbAYNIpGOJjMQoAIFGZoZwMZYoGBjLwAd5IPDnLyYICbKTSIoUfZpDTJFCYVwuGg2OhmgYYAYKNQ%2BBpNQRNawsFxWnJFDQzTZ-pJFDBIKgaSiAHTG03mmgQK1gYgCZGiB3EZ2cE02v2SxGkANcWIGOxwBT%2BlwwhRgAzacQkNwQQOxRQSD32sNiTjCMCBrjAVBcVDVnUGAQUYBVmvNlGQYiiXi6%2BuoRv6Zv96uSlFWH2cEhjgtS5HEJsD5tD0iCZHj2wJiDOAyz-sAXy3zeIxcMUlbJGEW93ferB9EBiknbrBC4F6VhuwTQYzAo0k8hHVGgAh2APCMGadhQFo2gAM-CEidCvhwnDTjYG6WmQ4gSDGVgSLS4hgIoHhenS%2BjEIo0hyLYnCFuOLwaMYcg8Ly0AyNi2g8MIxAaExxDGHhur6HQxBcUxHqCTwigGExBCvMYPAaNivDAjoDgUu4yipuiGr6MYygwEitCkaxYoOHYPGKHxJimn8yimYYabSFAiqcMqbBqhqX4-vqMAAe6ABvXnUP8cEAPQ6IB1KAbB8FcOEHGCemrqTjOnA4MQ3GWha-pcCEBjGN4HoZWGXAFAYdLpTQmWcGkxYHrY%2BXlYVnAdJR1UTnViVcJkBiSmViWJvmIl6MQmZcE0zivG0yRpC0Cb4v19EQI5zlYLg%2BBEKQAhemQAA0SicJtthQaI36-l5gE8CqXD1NxckcjweGcDK4jMvgAgkFY-xkIGVX7TYQ22CClq4dAcBHj1-qBn4bzXr9maoADA3Q7eYNhoGZR0jAzgwDCuGpumf27cjTqLfB6QtRA-7eTIHl-mdUWcLkxB0loUxbgzTNzHuNZsxxiycwO3NaMsW6BEyFAQEYAsc5wIvduLeSMzzLOcC%2BKqFIQMCQQQO0yfC7IplrShgNolAQBo2oXZwV0MvDCVemOB4cnY92yDwrECBqgZW4ytUJQmTuSi7JLuwYnvcd7PU61AcKvAo-sPXDQce0VhBPfRD3EDQH0BmrBDiESZB-OKmcRo6DRhwDz3p6WxOqylZBgNqIUbRGdM5oeA0bjAojsCA0kfD3cOHpX0jiDCofvEy8XiJ33cgF8PwOSAfUKD36rij3ga5AYBoYVYPfMnyA-fKIw%2Bj7YCuAs4WeBtlnDYTAujDwHlYgMCJAD3LPfYdIG81y5rRQF4DtXgdgJASFIDtQBcl3InUphbQIoDwFWCQqOFc7VpaIMXOuIwqCaroKaO8GEiZiwGFcOLYwI1CG2HxCQ1wvAJLi20FwbopAIDonArQKh9piB5mYaw9hWhuQ0lsFjMiC0gyAMMFKDMq4GoAP4NgmGsiUR-2Wt0UCHDDpU1gYBOmTRYqvR6jI5ejgRoGJ9gVKUs0FDdDMR8QxbUfQaDsNofQ1jQgQC8ugRgRUSpT1oOY8SbikyGEusQdAXp7E%2B3EHJO0kTvRsOJO46QPjlZORJh0KGMABBcnECFLezh1q5O0Z5OBbAuCsVzj1EyDJsm5KKn4HAMRWiTRaLkMofQoj1BCH4JoURjQGHBB8Nocg0g0AKIoQYxBIghCgPorgCQHCjnRhY8qpCilei4NILoyzWHVKyTkzZaSlrYAAGtgHoHFCAth9TaF4JKf8AhFCazpjFD4oIeAz0HqISUP0s4IDhm8funBsq5QTvebsx8TBclBP8nsg02wdi7BQXBE4LwhDTiPBOdtxyO2doIPE3zdo-RRGQv6X0yZKU4ood4MSww0HcQAPkZVwJqkp2ITm0HYaltLEoMpCQAHgFR1Lq%2BguU8uGf6fl%2BZMgjTGqYZ68JXqkGlQoGAgwuBGicsgNAuUPTEgINBSs6T0AACpVQ%2BmEAHAFlIJDoBOGahCPdnUgC4JUTw%2Br9DvklNANwFoEjUy8pBLgUQ4I8ENaIYG0ANCsToAwBOHxpAQB8rwfg7rPV6E8BxECYhCSCTLK6wtjlFDaGMOqKkYAuAlrLSDMAnhK2UVLeWkkHoq1NpBrrYQqY201pEUlatzaJB2HZOLakDaB0g2xnAbeGhx3ttsE4qJQS529rhnW9k4kuCQlTEue2mYaT8AnQu5cf1WLcBHjAVRqpugU3FnQF52oIAAFvjBOwNOU5qEAAD6zArAAF51gLC3bqEEP7YCoAA8sR0DwnhcAFGB-9L9kgcV1DtdNSJOAAEJnWcHodSBDEG2hQiSohFEBGAPFGnFwGkkByOoAANqzB2gsHaywdprB2psAAulwCAJkPh0YABRMcWKxgAlHBwSdHgAiZYysC8VrXrSZ7ovAFIme68B7gChYz4TXLViBxCAJtYo0EpFyJ95N9avirVIH1BHGUXAQFueu3LbAAZ7uezwBhU06B9RcHDHFcy7W-b%2BiDAHZhTCc5eSwGdXOEZ7sQb8B4NCAEVAfzrqUSzuIFF5sLnOLxZALiL0PntB%2BYizhlWy0QiKAIM4qzH7d5KAJrrEegnNhiZyzWYwWMxyCYkD3aMI4at1aUH%2B4AihdwgAk2kq%2BZlR5jns6gSLW47OhfQOFq9eQzQQB2vonbER0S2GyqWsg-w9rLus3tVksAM6Efo24U1pqliNY8N1FrxBhNTDEzxlEREv1gGu-XQjwAHtPckOqdwzXxSfbE0oKQHgACkiwwtLYU4d-7gPbsAZBwC0Hz2Ievf0O9trYndMnLiAAH-BIwSgnAs0UA-exKQcJUoQEE9wNMf6e59D-GeKbnXqwup7lEb8lyYCAEdASQVOUm088ELjLzZus%2Br6z3ZDGhUM9g58Qbc2GpvOcErGfQHxODs%2BxMQabL5YjS5p3T%2B08lgTePAi8YQogANyTuYpNwO1PC49QAAai8MTGKPoYD-nFpe6qUhtCeC-exEPIJ1R9eHQIDrW4AACQ6R0ztLJjV4YAk-smm82JnLh4RZME6a2A0gwA7UewQMaMBq%2Bp%2Bi4rnrbOBvW9l7mlL1ye5F7nHltzkhk8V6rzX1AdeG9N75iYNvgmO-U675Sf8ys9ct5rGQPjMAiexc4vrrfbiy%2B1Mcmn6PsfvRr3D1wEvcfL-ti-Zn16QTBNuGb635X-WQDB7v8IAFIPJv97Vib6G7uBPabZlD0DkwaBeZag0B%2BQ%2BS1bmxaoCCxI0B%2BCNrgQC6cLeiKBY4vxNQECITOCr5bhbgl5fpfqSgwgUGCaRISA7Ra5v5zh0GOha6EZa6kHRYl7ciMgEC0EcQSBMEDjAHb6SA9zAAsFa7bgki5w0B3QxjFgVbsioERCDKCboElrgRCHYFPJ4E9yzLNQzgK41hkE8LYGED8EaCCFYG5YG6iGf4SECGsFm7SFAT1r9DbwSC66OQoFcg0CzJs4aGsQaDaE8G6E0DuYgAGaZTGGC5cFmE8EWF0HaG2EH5iEgCOFWHOFpiuFQDuEFDECkLeHHKvi4C0jGYfAM5aqeI%2B5bgeDhaoAhRKxDQYjGC2DjCkAGDhC0hmhBJRAigQ5chiBYFK69af44DlEkAaB-7a595bqSjgTQEjFz4DYLHq7eD3gEAUBDoLRr6VbYA5jDK5wCRmw0ANZzZfoyT5iRFASlofCOgQDDQZbuI5QHh9YXFXFyA7Q9zOA9w7QOwGBWoPRc4gC2r2p95rqSBYESCOiYzYzz4gDobEj0A%2BpQB%2Bo0DHSlLBqKh7GcAvEMgm7YQCafHfEgCXogD-HsiAkBwglglHAQlDESBYGopD4wlkBQDCCCYW56bYAJAHikBh4Q7ahTqClWCM5mFn4jwm6cDaGNbKBvbQ4yk2E1ieC4EaA-KmqKCORSlfreZqAAaSlvHtZboQ7MBaDdQ6l6kjF%2BHVhoAineSbZ%2BDrpCAhR%2BBjREIfpcieDsgiBmFenshfrQBgB8FKlbhQDun-TOniSOhgAfDcSCZTDQaAExZpGcBgFpL%2BlCAl6sSShfqZlclYGD4RFwwRlrrelPIhz2QiQwCCaZmBlch8GzBiaQLOn1nBmCYLBibJkiE75gCuYNr7GqhXQjweAfpXFvT6AAbknsDsCabsDOB%2B4zmaYZasQQAHzFmfTYTFiLGCbjmkCcCkmhpgh5QZx0C2D0A%2BR0jSDOi4nk63zGIFDfBRyLgfpp64KZhnrPkR7Zkx7vls7aGjHt4gBRD2wjgnpPHJmqkcRnjRaAUIlRB%2BrHp7q7HcnuJn5-kFlbhwU9yBAHhSg8B-m8ir7cnk7FTCDcpKDzoUy6Laj0T0CcAUwAxjmKBgZaAGkghyCOjaRcCdqsWEadqpiOidrK4iYRZfabZpBvSjqzomCUDqn-hVGYBcC1LaDFk0Zs5TrSWlgqVmaJJ7SCaMZbQsbLBcZdlcA%2Bh3JqXbaCaaXZ6OgWX3LcB6X56GXGVcbMZmUlEuTZTq4JIXbGByXCAKWXbsSsjEB0aLp%2BXIilihV2AfauVbQmXTY%2BjDpvQRXUhLrRWOjZSpWkAImAJKockFWLwkWlFW6L505yBPqMBhSKUIQs6CQIl%2BDAhMJr5mmEa37wingP7J56Uw5wYuJ8UAYcmcmbA7T7ClUuQTItQSByXpj8biDDoyT1jPyenAK171xD4JVsYcbcabatApr8Apgag0ACjPzahdoEAuI1SPLPKXbipsL%2Bj-aeIFYupHmJZy5jiHXHUGANpnXxxIm4bfA3lC5eX6YRKeLPy7zaD-h0C6IfpsGRF%2BA0gYg4bPmEbLBKwSD-WyAAYOFSGGw9jPnSFZqwA0DUjCAg1g3YDTUcqzXDKvGh7h6Xb1FbD%2B4rAYDI6mrrCNHI5BQhTzBI5LCPYrBcDeAAYeAABkcwqAAAPktqgAAHoy1CrI7MpSyDlBAzo6Di5MxxR1XAZRyEatDEaG3SBLAAaxDgRHJ4YaBfpA541yQuyHgSBO1LAQ6IS2Cu1RybZ4DGAbTUi2A%2BQXICR0XIgaAWbw3IGpjGD214HbACoXCoACrhZKya0i78jqi-Vw7oAcReiXaQAghOwFZlA4ADxBYm1xW5r50DZ%2BBpC5BKHk59DgRQjk21KimoCCaA0rCOhHB%2B6w4fpBbs6oAIBu5vHbWmWw4OYLDWkXKbaPlrlyDoCHLiBd0eoYY90Rb92XZmlV0AZAacCrnMiODgRxXMnFKzDKlAG75D4Jbfg4bNgr2LBX0xZ9n5aRG5zXIpYP01hP1fov2D4FYw2VoZaa3lUy625sJQwG2R5wwu5foUh3Iqq1kAo%2BrAKoNjgD0OY%2BqFl2H6A8AB6abU2qjhCajXVji3WQSnWQ3xyM51iEYjUIMuLCilgUFdoCAUGbbgM27eDqX-jtW-qKAUzMCXaP7Fn0bu4KQ8BuC45%2B4iaSOe645PY-ZFl3YSAk7g5YQExiM-aa2VAajRy6A05YpjkrGInr3Il0ConoklJ-iQTqBGofA7EMI3kkU6pBC6hbG0B0CXmJbqA0oay8DUVgD-iwSOThNpKtAlT-iprKBIgh0ABffA5AxAdAwg1AUWbqdFKGxdrmWMGINAFI6uPArIFolEvAnFtQ0IAOVdskCSTspcpDKIQgo4XoyqfGi4NI0g3KwE3Kr60AoIXougkNkAigYVggsYfZ1cnAxQ2Ieg3Kck5gYE2gO00cIEikpGO0FlRIXacMO0KYwIHwp1RCZu%2B2lEeEgYlQKGNUGc4zSCaYY4LiIg1I6opcyNYzyzSzczUSTsO0EgTIZkvRchdgr06oO0eT6It2lI-xeajzRjfTulxADByegYTQTsBJVqFy9IEkNUigpc%2Bifo9TpYpMJAF6Yg1TOzduAgxdzir0xdrE0g3AgYNQ1T4z1LtovzOgBuNAIE0A9I9Em%2B8IcMIL4e%2BzxAugrEFyrsIIbCp14rkCtgPqpA5FErUcvwUAdg3T4giWgkIgig2IgYLCozICziug3woINKfZugSupW5o%2Bg-zILigIC5N2SBIIrxdurELBTJgv1cVBc1L9yNIPAIQsYUAxAAA3L4jAPclS1Qa7NSBnGwuIORXi1UPCBnHgp2MfEQl2rqDAPi%2B2HoMSNdtoKXFVI4DzKVvpP9GmP9Jq1XaOFq7muKzVC4oGMVNG-KfoJa083hDW7qwyOxJIACzRhlFAOqKzo09OEIDdMXRSOyDtCBOjEK808AnJMWEQkzP8SPIXTQIJJAvW5GJwEa2wia082whuuRZyuBLFkVb9Org050LYF61C5xPk7dgeCWqXCG-CPclvtW3DLWySLGGaO2%2BqDG91EM0sxaCmyYDdKQADOqNwJ9FUNc-bDU%2BINSeSL0f8RS4CbtNrAK4JEK1AOC2%2B%2BiLgXaztFaga45FqkqDqmgO%2BL4zu7WF42aMbKbNQElFwFvGQLoD27oLmxDn24B-u7um0yQP%2BxyTSmaE8vHIFlmLxxOwJzxE88J1YKJ6c1s9FQknYXA7J2APJ7IIp5vCp0oGp0Jy85pyc7Wzp3tHp9J1atpEZ8-KZ8p-xxZ1a883mwB9pxJ457GAZy58Z7mmPB5%2BK15%2Bp9Z353ZwF%2B00FzJyF258ImWJwPR9qmgFEzVbE7Y0Gt4yx45LMKXFELOmlsdVwAsKXAUGFFahQBV5wFBikLAKxHV7QOqFwGsKXMUB9e2DVu1xHpsKXKcsmm1w11wNg%2BkwJLYJsRQLMBN0oFN7q7N7zJwJN5QNN2xxQELGt4txt8t54xQGsBE4-npfIChgYDzl5JybDr2K0wm46LqNIAiWrhruotoLrmJpG3fBDoJu8k1gBlMOG01onRFsD4oH7tvXd9FQ909wie%2BP%2BNoACgPAHooF90%2BBj2khl4x%2B42Mpx6lsIOVx%2BCwDwN%2BOqDQLnPXAFKk1FiBEYyWo4Az3T4z-T6zyz%2Bz8z5z0z9z2z1z7zzz7xom79HaCQCL0L6L7VOL1L2LzL5L7L8L3L4rwr8rxL%2BZTlN4D6GCprxr%2Br0uFr7r9r3rzr-ryb8b2b0bxb4b1b%2Br3R0pccox20NE7lz9RQPG3QFWRFAYHQN7t8LiA9IFFQL5P5GAIFJk5wBnVTOTzoL6ADDwMmsH4FKXMagUJQCZ9%2BNH9uf9DYH5KcYn3EUefIVYBaPHz5BoP8BAClknyGmGgN4TcA9SPNJBFX%2BHzX8dagGHk%2BrpCCE3-n63xDhxybKFCmGX9383wX7Xx313xAJBDtCX2X4JCljtESO7xxaP7b06pl%2B4-UMfDulJPCGtGQAQGH1yMIFICoLVsD2YIUlYBAJ4NCD4G4AIE4IfdrF1HYHlGQM4BYBoAQCoMD64rwCcAn9mccgc-uYGv72BxIpgOgI-ycC8BD6WgY1DcGWBrBNgOwfYEcFOAzApgpwI4PsB2CbA1gywBYNcBuALBlgKA1AdsE2BoD0BGAzAecCmBMCrgZA8gRQLWAcCaBtAugfQIYHnBjUmGNPMgAAAkCORWpLVNRckv0AeAVIygAD8CAYANuFloAA-AAAYMYeM7AcNgAHItojoEKOtj9xfoxMFeSWorQRzCDkAaeTDHEU1R28GODvboKnzABpZPMW3RyHx0i6CcfOInWzuJ1aaBcrASXOTilzHhxAnYHIJdgCFkhMhcm55bwaWmVa4Ezm3oRwNSEpBXF7Q5nC9k8ivZZg4iP7QBDCES7zNimg0LMvq10BetKOMgeEOsygD4t0W14M0PnTLQrhU2BLCoTYHLSmkYQYbMLkhTNI0Z7A5HAps330ZhscUtAKODCFlY7QD0nRclu10Oa3Ze0pHe9iNkWEahh2TyUdu6FjAudt2urEgKWmLrqgnkZQxZjqypBWoQ4cRJpmkMpABJdANwwYZYAwzUsaA-zPYUC264LMeAPwwFhc1QDvMS2YgLqukOcQQArizfewRvxx5oAU%2BsgZND5gH5cc5CeXbyGEzSReDVO3nDTrFwCG6cEuwQ5zqEIU6pc4ieIqLlZ185ac4ugQ0kcFwpEmcqRxqGkT4MJEMjiRDnZkSENc6UjwhHI8zlyJi48j9sTIqTol3JGCi2RwoiLviOi70j-BkokkdKLJGGdQupnakaKMs6%2BCbO-bNUXyI1Esi5Rgw5vpyP1HcjVR9nSTvpwFHaj2Rio2kQaKJHGj7RTnLUWEKU5pJHIFJEANeEQAgBKM%2BUB6AGK1zBj3uzQAQs0D4zCBPAAY9iEZyxhtEgkwY4qO70AgAoviqgHaAbA0A7QpgO0RWjtGEE7RnA-xdajICRaSABUiqRlDtFiD1iBWjYmwC2NgBtjWgHYmAG2PDY7QtoO0BHDtGSA7QCgO0XIDtDjRpcJiKgDiKX21CCZ1EfZDhGRXNwApGAO0boDtBCCeINA3iHaCHEcgHVg%2BuOHaIMGo7CBqO5YkQMWJECViRA4ZajtuDUFpcauw-XRCFBGC%2B8AUngTwN7hvGeAHxP4YCS%2BLS64UzIRzM8hkxMBoZVmxgNLiEE2h5JSY%2B0VBjtDSCQIdofgQ8TtDKA7QYAPYtsfUDS5NRdmIUK6F2htQ7i9x6AfNo5DrgZxG4oQZCQCiCgyIdocgjiXoB2jFAdoCABHGACCgU0gopKIKNIH4mCThJ6pUScQGcDiSBAaXPwFm1gJ8BMEVgY4hxBgkIAhERCWgsYGbIj1GAuk2wIJmMkGSaJXiVwOPl3FWTHAlk-ca4DkBBQVAQUAgEFELEj1oA8AuSdaA%2BCrN9s0gVoPxJkrMB0%2BCAEBGAhVT8T%2BAAqRBoyjfHqwH0NASOHrE1AAozAREnaGniymoA08aeHaI6DS4Z1KA-AeiHJGED2NUpAdI-gSgfE5J6pAgHaG2IFSrNGAjoAMUSUEieAGQwYvVBhgDHAwR48AJAGJRADbggAA" target="_blank">VIM WorkShop</a></p><p>@@ – Utolsó makró ismétlése (Makrók)</p>
-<p><code>:%s/\s\+$//e</code> — eltávolítja a sorvégre szórt felesleges szóközöket a fájlban (global, hibajelzés elnyomva).</p>
+<label id="vim-command"><input type="checkbox"/> Hasznos VIM parancs</label><p><a href="https://www.vimworkshop.com/challenge?code=N4IgzgLghgThIC4QGIAEBaTnUGlZQGsIBTGYg1AS7FTAC8oA3QjLdAHQDspUAjVAMaoAJqmKoAZqgDmqABaoAlqgBWqCgBtUAW1SdUAe1QAHVAEdUMWqgioArqkaoA7qgAeqAJ6o6XAIKoAEKoAMKoACKoAKKoAGKoAOKoABKoAJKoAFK4qAAyqACyqAByqADyqAAKqACKqABKqADKqAAqqACqqABqqADqqAAaqACaqABaXAAMqACMqABMqADMqAAsqACsqABsqADsqAAcqACcczOz87NLs6uzG7ObXFDGxhrivFDc3IJypDBvMIoCQxNJZBIYHZFLZpDBXuI5AZOMRvIoBOIVFBdARFM5lB9tMidN9pEZOHZbAYNIpGOJjMQoAIFGZoZwMZYoGBjLwAd5IPDnLyYICbKTSIoUfZpDTJFCYVwuGg2OhmgYYAYKNQ%2BBpNQRNawsFxWnJFDQzTZ-pJFDBIKgaSiAHTG03mmgQK1gYgCZGiB3EZ2cE02v2SxGkANcWIGOxwBT%2BlwwhRgAzacQkNwQQOxRQSD32sNiTjCMCBrjAVBcVDVnUGAQUYBVmvNlGQYiiXi6%2BuoRv6Zv96uSlFWH2cEhjgtS5HEJsD5tD0iCZHj2wJiDOAyz-sAXy3zeIxcMUlbJGEW93ferB9EBiknbrBC4F6VhuwTQYzAo0k8hHVGgAh2APCMGadhQFo2gAM-CEidCvhwnDTjYG6WmQ4gSDGVgSLS4hgIoHhenS%2BjEIo0hyLYnCFuOLwaMYcg8Ly0AyNi2g8MIxAaExxDGHhur6HQxBcUxHqCTwigGExBCvMYPAaNivDAjoDgUu4yipuiGr6MYygwEitCkaxYoOHYPGKHxJimn8yimYYabSFAiqcMqbBqhqX4-vqMAAe6ABvXnUP8cEAPQ6IB1KAbB8FcOEHGCemrqTjOnA4MQ3GWha-pcCEBjGN4HoZWGXAFAYdLpTQmWcGkxYHrY%2BXlYVnAdJR1UTnViVcJkBiSmViWJvmIl6MQmZcE0zivG0yRpC0Cb4v19EQI5zlYLg%2BBEKQAhemQAA0SicJtthQaI36-l5gE8CqXD1NxckcjweGcDK4jMvgAgkFY-xkIGVX7TYQ22CClq4dAcBHj1-qBn4bzXr9maoADA3Q7eYNhoGZR0jAzgwDCuGpumf27cjTqLfB6QtRA-7eTIHl-mdUWcLkxB0loUxbgzTNzHuNZsxxiycwO3NaMsW6BEyFAQEYAsc5wIvduLeSMzzLOcC%2BKqFIQMCQQQO0yfC7IplrShgNolAQBo2oXZwV0MvDCVemOB4cnY92yDwrECBqgZW4ytUJQmTuSi7JLuwYnvcd7PU61AcKvAo-sPXDQce0VhBPfRD3EDQH0BmrBDiESZB-OKmcRo6DRhwDz3p6WxOqylZBgNqIUbRGdM5oeA0bjAojsCA0kfD3cOHpX0jiDCofvEy8XiJ33cgF8PwOSAfUKD36rij3ga5AYBoYVYPfMnyA-fKIw%2Bj7YCuAs4WeBtlnDYTAujDwHlYgMCJAD3LPfYdIG81y5rRQF4DtXgdgJASFIDtQBcl3InUphbQIoDwFWCQqOFc7VpaIMXOuIwqCaroKaO8GEiZiwGFcOLYwI1CG2HxCQ1wvAJLi20FwbopAIDonArQKh9piB5mYaw9hWhuQ0lsFjMiC0gyAMMFKDMq4GoAP4NgmGsiUR-2Wt0UCHDDpU1gYBOmTRYqvR6jI5ejgRoGJ9gVKUs0FDdDMR8QxbUfQaDsNofQ1jQgQC8ugRgRUSpT1oOY8SbikyGEusQdAXp7E%2B3EHJO0kTvRsOJO46QPjlZORJh0KGMABBcnECFLezh1q5O0Z5OBbAuCsVzj1EyDJsm5KKn4HAMRWiTRaLkMofQoj1BCH4JoURjQGHBB8Nocg0g0AKIoQYxBIghCgPorgCQHCjnRhY8qpCilei4NILoyzWHVKyTkzZaSlrYAAGtgHoHFCAth9TaF4JKf8AhFCazpjFD4oIeAz0HqISUP0s4IDhm8funBsq5QTvebsx8TBclBP8nsg02wdi7BQXBE4LwhDTiPBOdtxyO2doIPE3zdo-RRGQv6X0yZKU4ood4MSww0HcQAPkZVwJqkp2ITm0HYaltLEoMpCQAHgFR1Lq%2BguU8uGf6fl%2BZMgjTGqYZ68JXqkGlQoGAgwuBGicsgNAuUPTEgINBSs6T0AACpVQ%2BmEAHAFlIJDoBOGahCPdnUgC4JUTw%2Br9DvklNANwFoEjUy8pBLgUQ4I8ENaIYG0ANCsToAwBOHxpAQB8rwfg7rPV6E8BxECYhCSCTLK6wtjlFDaGMOqKkYAuAlrLSDMAnhK2UVLeWkkHoq1NpBrrYQqY201pEUlatzaJB2HZOLakDaB0g2xnAbeGhx3ttsE4qJQS529rhnW9k4kuCQlTEue2mYaT8AnQu5cf1WLcBHjAVRqpugU3FnQF52oIAAFvjBOwNOU5qEAAD6zArAAF51gLC3bqEEP7YCoAA8sR0DwnhcAFGB-9L9kgcV1DtdNSJOAAEJnWcHodSBDEG2hQiSohFEBGAPFGnFwGkkByOoAANqzB2gsHaywdprB2psAAulwCAJkPh0YABRMcWKxgAlHBwSdHgAiZYysC8VrXrSZ7ovAFIme68B7gChYz4TXLViBxCAJtYo0EpFyJ95N9avirVIH1BHGUXAQFueu3LbAAZ7uezwBhU06B9RcHDHFcy7W-b%2BiDAHZhTCc5eSwGdXOEZ7sQb8B4NCAEVAfzrqUSzuIFF5sLnOLxZALiL0PntB%2BYizhlWy0QiKAIM4qzH7d5KAJrrEegnNhiZyzWYwWMxyCYkD3aMI4at1aUH%2B4AihdwgAk2kq%2BZlR5jns6gSLW47OhfQOFq9eQzQQB2vonbER0S2GyqWsg-w9rLus3tVksAM6Efo24U1pqliNY8N1FrxBhNTDEzxlEREv1gGu-XQjwAHtPckOqdwzXxSfbE0oKQHgACkiwwtLYU4d-7gPbsAZBwC0Hz2Ievf0O9trYndMnLiAAH-BIwSgnAs0UA-exKQcJUoQEE9wNMf6e59D-GeKbnXqwup7lEb8lyYCAEdASQVOUm088ELjLzZus%2Br6z3ZDGhUM9g58Qbc2GpvOcErGfQHxODs%2BxMQabL5YjS5p3T%2B08lgTePAi8YQogANyTuYpNwO1PC49QAAai8MTGKPoYD-nFpe6qUhtCeC-exEPIJ1R9eHQIDrW4AACQ6R0ztLJjV4YAk-smm82JnLh4RZME6a2A0gwA7UewQMaMBq%2Bp%2Bi4rnrbOBvW9l7mlL1ye5F7nHltzkhk8V6rzX1AdeG9N75iYNvgmO-U675Sf8ys9ct5rGQPjMAiexc4vrrfbiy%2B1Mcmn6PsfvRr3D1wEvcfL-ti-Zn16QTBNuGb635X-WQDB7v8IAFIPJv97Vib6G7uBPabZlD0DkwaBeZag0B%2BQ%2BS1bmxaoCCxI0B%2BCNrgQC6cLeiKBY4vxNQECITOCr5bhbgl5fpfqSgwgUGCaRISA7Ra5v5zh0GOha6EZa6kHRYl7ciMgEC0EcQSBMEDjAHb6SA9zAAsFa7bgki5w0B3QxjFgVbsioERCDKCboElrgRCHYFPJ4E9yzLNQzgK41hkE8LYGED8EaCCFYG5YG6iGf4SECGsFm7SFAT1r9DbwSC66OQoFcg0CzJs4aGsQaDaE8G6E0DuYgAGaZTGGC5cFmE8EWF0HaG2EH5iEgCOFWHOFpiuFQDuEFDECkLeHHKvi4C0jGYfAM5aqeI%2B5bgeDhaoAhRKxDQYjGC2DjCkAGDhC0hmhBJRAigQ5chiBYFK69af44DlEkAaB-7a595bqSjgTQEjFz4DYLHq7eD3gEAUBDoLRr6VbYA5jDK5wCRmw0ANZzZfoyT5iRFASlofCOgQDDQZbuI5QHh9YXFXFyA7Q9zOA9w7QOwGBWoPRc4gC2r2p95rqSBYESCOiYzYzz4gDobEj0A%2BpQB%2Bo0DHSlLBqKh7GcAvEMgm7YQCafHfEgCXogD-HsiAkBwglglHAQlDESBYGopD4wlkBQDCCCYW56bYAJAHikBh4Q7ahTqClWCM5mFn4jwm6cDaGNbKBvbQ4yk2E1ieC4EaA-KmqKCORSlfreZqAAaSlvHtZboQ7MBaDdQ6l6kjF%2BHVhoAineSbZ%2BDrpCAhR%2BBjREIfpcieDsgiBmFenshfrQBgB8FKlbhQDun-TOniSOhgAfDcSCZTDQaAExZpGcBgFpL%2BlCAl6sSShfqZlclYGD4RFwwRlrrelPIhz2QiQwCCaZmBlch8GzBiaQLOn1nBmCYLBibJkiE75gCuYNr7GqhXQjweAfpXFvT6AAbknsDsCabsDOB%2B4zmaYZasQQAHzFmfTYTFiLGCbjmkCcCkmhpgh5QZx0C2D0A%2BR0jSDOi4nk63zGIFDfBRyLgfpp64KZhnrPkR7Zkx7vls7aGjHt4gBRD2wjgnpPHJmqkcRnjRaAUIlRB%2BrHp7q7HcnuJn5-kFlbhwU9yBAHhSg8B-m8ir7cnk7FTCDcpKDzoUy6Laj0T0CcAUwAxjmKBgZaAGkghyCOjaRcCdqsWEadqpiOidrK4iYRZfabZpBvSjqzomCUDqn-hVGYBcC1LaDFk0Zs5TrSWlgqVmaJJ7SCaMZbQsbLBcZdlcA%2Bh3JqXbaCaaXZ6OgWX3LcB6X56GXGVcbMZmUlEuTZTq4JIXbGByXCAKWXbsSsjEB0aLp%2BXIilihV2AfauVbQmXTY%2BjDpvQRXUhLrRWOjZSpWkAImAJKockFWLwkWlFW6L505yBPqMBhSKUIQs6CQIl%2BDAhMJr5mmEa37wingP7J56Uw5wYuJ8UAYcmcmbA7T7ClUuQTItQSByXpj8biDDoyT1jPyenAK171xD4JVsYcbcabatApr8Apgag0ACjPzahdoEAuI1SPLPKXbipsL%2Bj-aeIFYupHmJZy5jiHXHUGANpnXxxIm4bfA3lC5eX6YRKeLPy7zaD-h0C6IfpsGRF%2BA0gYg4bPmEbLBKwSD-WyAAYOFSGGw9jPnSFZqwA0DUjCAg1g3YDTUcqzXDKvGh7h6Xb1FbD%2B4rAYDI6mrrCNHI5BQhTzBI5LCPYrBcDeAAYeAABkcwqAAAPktqgAAHoy1CrI7MpSyDlBAzo6Di5MxxR1XAZRyEatDEaG3SBLAAaxDgRHJ4YaBfpA541yQuyHgSBO1LAQ6IS2Cu1RybZ4DGAbTUi2A%2BQXICR0XIgaAWbw3IGpjGD214HbACoXCoACrhZKya0i78jqi-Vw7oAcReiXaQAghOwFZlA4ADxBYm1xW5r50DZ%2BBpC5BKHk59DgRQjk21KimoCCaA0rCOhHB%2B6w4fpBbs6oAIBu5vHbWmWw4OYLDWkXKbaPlrlyDoCHLiBd0eoYY90Rb92XZmlV0AZAacCrnMiODgRxXMnFKzDKlAG75D4Jbfg4bNgr2LBX0xZ9n5aRG5zXIpYP01hP1fov2D4FYw2VoZaa3lUy625sJQwG2R5wwu5foUh3Iqq1kAo%2BrAKoNjgD0OY%2BqFl2H6A8AB6abU2qjhCajXVji3WQSnWQ3xyM51iEYjUIMuLCilgUFdoCAUGbbgM27eDqX-jtW-qKAUzMCXaP7Fn0bu4KQ8BuC45%2B4iaSOe645PY-ZFl3YSAk7g5YQExiM-aa2VAajRy6A05YpjkrGInr3Il0ConoklJ-iQTqBGofA7EMI3kkU6pBC6hbG0B0CXmJbqA0oay8DUVgD-iwSOThNpKtAlT-iprKBIgh0ABffA5AxAdAwg1AUWbqdFKGxdrmWMGINAFI6uPArIFolEvAnFtQ0IAOVdskCSTspcpDKIQgo4XoyqfGi4NI0g3KwE3Kr60AoIXougkNkAigYVggsYfZ1cnAxQ2Ieg3Kck5gYE2gO00cIEikpGO0FlRIXacMO0KYwIHwp1RCZu%2B2lEeEgYlQKGNUGc4zSCaYY4LiIg1I6opcyNYzyzSzczUSTsO0EgTIZkvRchdgr06oO0eT6It2lI-xeajzRjfTulxADByegYTQTsBJVqFy9IEkNUigpc%2Bifo9TpYpMJAF6Yg1TOzduAgxdzir0xdrE0g3AgYNQ1T4z1LtovzOgBuNAIE0A9I9Em%2B8IcMIL4e%2BzxAugrEFyrsIIbCp14rkCtgPqpA5FErUcvwUAdg3T4giWgkIgig2IgYLCozICziug3woINKfZugSupW5o%2Bg-zILigIC5N2SBIIrxdurELBTJgv1cVBc1L9yNIPAIQsYUAxAAA3L4jAPclS1Qa7NSBnGwuIORXi1UPCBnHgp2MfEQl2rqDAPi%2B2HoMSNdtoKXFVI4DzKVvpP9GmP9Jq1XaOFq7muKzVC4oGMVNG-KfoJa083hDW7qwyOxJIACzRhlFAOqKzo09OEIDdMXRSOyDtCBOjEK808AnJMWEQkzP8SPIXTQIJJAvW5GJwEa2wia082whuuRZyuBLFkVb9Org050LYF61C5xPk7dgeCWqXCG-CPclvtW3DLWySLGGaO2%2BqDG91EM0sxaCmyYDdKQADOqNwJ9FUNc-bDU%2BINSeSL0f8RS4CbtNrAK4JEK1AOC2%2B%2BiLgXaztFaga45FqkqDqmgO%2BL4zu7WF42aMbKbNQElFwFvGQLoD27oLmxDn24B-u7um0yQP%2BxyTSmaE8vHIFlmLxxOwJzxE88J1YKJ6c1s9FQknYXA7J2APJ7IIp5vCp0oGp0Jy85pyc7Wzp3tHp9J1atpEZ8-KZ8p-xxZ1a883mwB9pxJ457GAZy58Z7mmPB5%2BK15%2Bp9Z353ZwF%2B00FzJyF258ImWJwPR9qmgFEzVbE7Y0Gt4yx45LMKXFELOmlsdVwAsKXAUGFFahQBV5wFBikLAKxHV7QOqFwGsKXMUB9e2DVu1xHpsKXKcsmm1w11wNg%2BkwJLYJsRQLMBN0oFN7q7N7zJwJN5QNN2xxQELGt4txt8t54xQGsBE4-npfIChgYDzl5JybDr2K0wm46LqNIAiWrhruotoLrmJpG3fBDoJu8k1gBlMOG01onRFsD4oH7tvXd9FQ909wie%2BP%2BNoACgPAHooF90%2BBj2khl4x%2B42Mpx6lsIOVx%2BCwDwN%2BOqDQLnPXAFKk1FiBEYyWo4Az3T4z-T6zyz%2Bz8z5z0z9z2z1z7zzz7xom79HaCQCL0L6L7VOL1L2LzL5L7L8L3L4rwr8rxL%2BZTlN4D6GCprxr%2Br0uFr7r9r3rzr-ryb8b2b0bxb4b1b%2Br3R0pccox20NE7lz9RQPG3QFWRFAYHQN7t8LiA9IFFQL5P5GAIFJk5wBnVTOTzoL6ADDwMmsH4FKXMagUJQCZ9%2BNH9uf9DYH5KcYn3EUefIVYBaPHz5BoP8BAClknyGmGgN4TcA9SPNJBFX%2BHzX8dagGHk%2BrpCCE3-n63xDhxybKFCmGX9383wX7Xx313xAJBDtCX2X4JCljtESO7xxaP7b06pl%2B4-UMfDulJPCGtGQAQGH1yMIFICoLVsD2YIUlYBAJ4NCD4G4AIE4IfdrF1HYHlGQM4BYBoAQCoMD64rwCcAn9mccgc-uYGv72BxIpgOgI-ycC8BD6WgY1DcGWBrBNgOwfYEcFOAzApgpwI4PsB2CbA1gywBYNcBuALBlgKA1AdsE2BoD0BGAzAecCmBMCrgZA8gRQLWAcCaBtAugfQIYHnBjUmGNPMgAAAkCORWpLVNRckv0AeAVIygAD8CAYANuFloAA-AAAYMYeM7AcNgAHItojoEKOtj9xfoxMFeSWorQRzCDkAaeTDHEU1R28GODvboKnzABpZPMW3RyHx0i6CcfOInWzuJ1aaBcrASXOTilzHhxAnYHIJdgCFkhMhcm55bwaWmVa4Ezm3oRwNSEpBXF7Q5nC9k8ivZZg4iP7QBDCES7zNimg0LMvq10BetKOMgeEOsygD4t0W14M0PnTLQrhU2BLCoTYHLSmkYQYbMLkhTNI0Z7A5HAps330ZhscUtAKODCFlY7QD0nRclu10Oa3Ze0pHe9iNkWEahh2TyUdu6FjAudt2urEgKWmLrqgnkZQxZjqypBWoQ4cRJpmkMpABJdANwwYZYAwzUsaA-zPYUC264LMeAPwwFhc1QDvMS2YgLqukOcQQArizfewRvxx5oAU%2BsgZND5gH5cc5CeXbyGEzSReDVO3nDTrFwCG6cEuwQ5zqEIU6pc4ieIqLlZ185ac4ugQ0kcFwpEmcqRxqGkT4MJEMjiRDnZkSENc6UjwhHI8zlyJi48j9sTIqTol3JGCi2RwoiLviOi70j-BkokkdKLJGGdQupnakaKMs6%2BCbO-bNUXyI1Esi5Rgw5vpyP1HcjVR9nSTvpwFHaj2Rio2kQaKJHGj7RTnLUWEKU5pJHIFJEANeEQAgBKM%2BUB6AGK1zBj3uzQAQs0D4zCBPAAY9iEZyxhtEgkwY4qO70AgAoviqgHaAbA0A7QpgO0RWjtGEE7RnA-xdajICRaSABUiqRlDtFiD1iBWjYmwC2NgBtjWgHYmAG2PDY7QtoO0BHDtGSA7QCgO0XIDtDjRpcJiKgDiKX21CCZ1EfZDhGRXNwApGAO0boDtBCCeINA3iHaCHEcgHVg%2BuOHaIMGo7CBqO5YkQMWJECViRA4ZajtuDUFpcauw-XRCFBGC%2B8AUngTwN7hvGeAHxP4YCS%2BLS64UzIRzM8hkxMBoZVmxgNLiEE2h5JSY%2B0VBjtDSCQIdofgQ8TtDKA7QYAPYtsfUDS5NRdmIUK6F2htQ7i9x6AfNo5DrgZxG4oQZCQCiCgyIdocgjiXoB2jFAdoCABHGACCgU0gopKIKNIH4mCThJ6pUScQGcDiSBAaXPwFm1gJ8BMEVgY4hxBgkIAhERCWgsYGbIj1GAuk2wIJmMkGSaJXiVwOPl3FWTHAlk-ca4DkBBQVAQUAgEFELEj1oA8AuSdaA%2BCrN9s0gVoPxJkrMB0%2BCAEBGAhVT8T%2BAAqRBoyjfHqwH0NASOHrE1AAozAREnaGniymoA08aeHaI6DS4Z1KA-AeiHJGED2NUpAdI-gSgfE5J6pAgHaG2IFSrNGAjoAMUSUEieAGQwYvVBhgDHAwR48AJAGJRADbggAA" target="_blank">VIM WorkShop</a></p><p>O – Új sor beszúrása a jelenlegi sor fölé (Beszúrás/Szerkesztés)</p>
+<p><code>:%s/\s\+$//e</code> — eltávolítja a sorvégi felesleges szóközöket az egész fájlból (nem jelez hibát, ha nincs találat).</p>
 <hr/>
-<label id="tmux-command"><input type="checkbox"/> Hasznos TMUX parancs</label><p><a href="https://pwn.college/" target="_blank">Tmux Playground</a></p><p>" – Pane felosztása vízszintesen (Pane kezelés)</p>
-<p><code>tmux new-session -s dev -d \; split-window -h \; split-window -v \; select-pane -t 0</code> — új, elszeparált tmux session létrehozása ablakok és panelek gyors felosztásával.</p>
+<label id="tmux-command"><input type="checkbox"/> Hasznos TMUX parancs</label><p><a href="https://pwn.college/" target="_blank">Tmux Playground</a></p><p>{ – Pane áthelyezése balra (Pane kezelés)</p>
+<p><code>tmux new-session -s work -d; tmux split-window -h; tmux select-pane -t 0; tmux attach -t work</code> — új, háttérben futó munkasession létrehozása, vízszintes felosztás, pane kiválasztása, majd csatlakozás.</p>
 <hr/>
 <label id="bash-example"><input type="checkbox"/> Rövid Bash példa</label>
 <pre><code class="language-bash">#!/usr/bin/env bash
-# List files modified in the last 7 days with size and timestamp
-dir="${1:-.}"
-if [[ ! -d "$dir" ]]; then
-    echo "Directory not found: $dir" &gt;&amp;2
+LOG="/var/log/nginx/access.log"
+if [[ -f "$LOG" ]]; then
+    grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' "$LOG" \
+    | sort \
+    | uniq -c \
+    | sort -nr \
+    | head -n 10
+else
+    echo "Log file not found: $LOG" &gt;&amp;2
     exit 1
 fi
-find "$dir" -type f -mtime -7 -printf '%TY-%Tm-%Td %TH:%TM:%TS %s %p\n' | sort -r
 </code></pre>
 <textarea class="tab-support"></textarea>
-<p>A script a következő parancsokat/szerkezeteket használja: shebang, változóexpanzió, feltételes ellenőrzés ([[ ]]), find parancs -printf opcióval, és sort. A script célja, hogy egy adott könyvtárban kilistázza azokat a fájlokat, amelyeket az elmúlt 7 napban módosítottak, megadva a módosítás idejét és a fájl méretét.</p>
+<p>A script grep-pel kivonja a logból az IPv4 címeket (grep -Eo), sorba rendezi (sort), megszámolja az ismétlődéseket (uniq -c), számszerű rendezést végez (sort -nr) és a leggyakoribb 10 találatot adja vissza (head). Cél: gyorsan megtalálni a legtöbbször előforduló IP-címeket egy access logban.</p>
 <hr/>
 <label id="powershell-example"><input type="checkbox"/> Rövid PowerShell példa</label>
-<pre><code class="language-powershell">Param(
-    [string]$Computer = 'localhost'
-)
-
-Get-Service -ComputerName $Computer |
-    Where-Object { $_.Status -eq 'Running' } |
-    Select-Object Name, Status, DisplayName |
-    Sort-Object Name
+<pre><code class="language-powershell"># Keresés AWS Access Key ID mintára (.log fájlokban)
+$pattern = 'AKIA[0-9A-Z]{16}'
+Get-ChildItem -Path . -Recurse -Filter *.log |
+    Select-String -Pattern $pattern -AllMatches |
+    ForEach-Object {
+        foreach ($m in $_.Matches) {
+            [PSCustomObject]@{
+                File = $_.Path
+                Match = $m.Value
+                Line = $_.Line.Trim()
+            }
+        }
+    } | Format-Table -AutoSize
 </code></pre>
 <textarea class="tab-support"></textarea>
-<p>A kód PowerShell-alapú elemeket használ: Param a paraméterfogadásra, Get-Service a szolgáltatások lekérdezésére, Where-Object szűrésre, Select-Object a mezők kiválasztására és Sort-Object rendezésre. A script célja, hogy egy megadott gépen kilistázza a futó szolgáltatásokat rendezett formában.</p>
+<p>A példában Get-ChildItem rekurzívan listázza a log fájlokat, Select-String regex-mintát alkalmaz (AWS Access Key ID jellegzetes prefixel: AKIA...), majd ForEach-Object és Matches segítségével kilistázza a fájlt, a talált kulcsot és a teljes sort. Cél: potenciális API/AWS kulcsok gyors felderítése a fájlokban.</p>
 <hr/>
 <label id="regex-example"><input type="checkbox"/> Regex feladat</label><p><a href="https://regex101.com/" target="_blank">Regex101</a></p>
-<p>Feladat: Találd meg a naplóban az esetleges AWS credential (Access Key ID + Secret) szivárgásait; a minta lehet környezetváltozóként vagy logolt párként. Keress olyan sorokat/példányokat, ahol egy AWS Access Key ID (AKIA + 16 nagybetű vagy szám) és egy hozzá tartozó 40 karakteres secret szerepel ugyanabban a logblokkban.</p>
-<p>Log minta:</p>
-<pre><code class="language-text">2026-03-30T12:01:22Z app[web.1]: ERROR - Failed to upload to S3
-2026-03-30T12:01:22Z app[web.1]: DEBUG - AWS_ACCESS_KEY_ID=AKIA1234EXAMPLEZZZZ
-2026-03-30T12:01:22Z app[web.1]: DEBUG - AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-192.168.1.45 - - [30/Mar/2026:12:01:22 +0000] "GET /health HTTP/1.1" 200 12
+<p>Feladat: Találd meg a naplóbejegyzésekben előforduló JWT (JSON Web Token) tokeneket, amelyek három ponttal elválasztott Base64URL részből állnak (header.payload.signature).</p>
+<pre><code class="language-text">127.0.0.1 - - [04/Apr/2026:10:12:01 +0000] "GET /api/status HTTP/1.1" 200 123 "-" "curl/7.68.0"
+203.0.113.5 - - [04/Apr/2026:10:13:42 +0000] "POST /login HTTP/1.1" 200 456 "-" "AuthClient/1.2" "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiam9obiJ9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+198.51.100.12 - - [04/Apr/2026:10:15:00 +0000] "GET /api/data?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1Njc4OSJ9.dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk HTTP/1.1" 200 789 "-" "Mozilla/5.0"
 </code></pre>
-<p>Regex megoldás (például grep -P / PCRE vagy Python re.DOTALL használatával):</p>
-<pre><code class="language-regex">(?s)\bAKIA[0-9A-Z]{16}\b[\s\S]{0,200}\b[A-Za-z0-9/+=]{40}\b</code></pre>
-<p>Magyarázat: A regex reális mintákra épít: az AKIA kezdetű Access Key ID formátumát (\bAKIA[0-9A-Z]{16}\b) és egy tipikus 40 karakteres secret formátumát (\b[A-Za-z0-9/+=]{40}\b) keresi, amelyek legfeljebb ~200 karakteren belül lehetnek egymástól (példa egy logblokkban előforduló párok felismerésére). A (?s) flag biztosítja, hogy a pont karakter új sorokra is illeszkedjen, így több soros logbejegyzéseket is át tud vizsgálni.</p></div>
+<p>Megoldás (regex):</p>
+<pre><code class="language-regex">\b[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\b</code></pre>
+<p>A regex három Base64URL-szerű részt keres, pontokkal elválasztva; minden rész legalább 10 karakter hosszú, így csökkenti a false positive-eket és alkalmas JWT-k azonosítására naplófájlokban (kereshető “Bearer <token>”, query-param vagy Authorization header esetén is).</token></p>
+```</div>
 <script>
 document.querySelectorAll(".tab-support").forEach(textarea => {
     textarea.addEventListener("keydown", function(e) {
